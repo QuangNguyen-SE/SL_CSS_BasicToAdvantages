@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bottom{
+            margin-bottom: 30px; /* Margin sẽ lấy 30px làm quy ước chung chứ ko lấy 50px*/
+        }
+        /* Margin Collapse 
+            Nghĩa là khi 2 thẻ đều có sự điều chỉnh và margin
+            Nhưng nó ko đồng nghĩa với việc khoảng cách của cả 2 bằng tổng margin của chúng
+            mà cơ chế MARGIN COLLAPSE ra đời
+            nó sẽ lấy margin có gtri cao nhất làm khoảng cách
+
+            Nhưng margin collapse chỉ xảy ra với top và bottom, left và right ko xảy ra
+        */
+        .top{
+            margin-top: 20px; /* xóa thằng này để chứng minh Margin Collapse*/
+        }
+    </style>
+</head>
+<body>
+    <div class="bottom">123</div>
+    <div class="top">ABC</div>
+</body>
+</html> 

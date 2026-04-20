@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden-card p{
+            display: none;
+        }
+        .hidden-card:hover p{
+            width: fit-content;
+            display: block;
+            background-color: black;
+            color: white;
+        }
+
+        .hidden-card p:hover {
+            width: fit-content;
+            display: block;
+            background-color: red;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="hidden-card">
+            Hover me to show hidden message (display: none)
+            <p>HI THERE !!!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+html, body{
+    height: 100%;
+}
+body{
+    display:flex;
+}
+/*
+    flex-wrap: là thuộc tính quan trọng trong flex dimension
+    vì sao?
+        Flex-wrap cho chúng ta 3 lựa chọn để điều khiển không gian con bên trong nó
+        Flex dimension là 1 ko gian 1 chiều, nên nó hiển thị các items theo 1 hàng ngang
+        Nhưng hãy tưởng tượng xem kích thước màn hình của các thiết bị là khác nhau
+        nên sẽ có 1 số items sẽ ko đc hiển thị
+
+    Flex-wrap: nowrap(default) / wrap(give addition line) / wrap-reverse (đảo chiều wrap)
+*/
+
+body{
+    flex-wrap: wrap;
+    align-content: center; 
+    /*align content chỉ dùng đc khi nó có 2 dòng trở lên, nếu chỉ có 1 dòng, nó sẽ ko dùng đc*/
+}

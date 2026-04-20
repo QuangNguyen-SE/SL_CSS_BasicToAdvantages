@@ -1,0 +1,17 @@
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body{
+    /* Align-content chỉ dùng được khi có 2 dòng trở lên
+        Align-items là điều khiên vị trí của 1 thẻ so với các thẻ khác trong cùng container
+        Align-contents là điều kiển baseline của 2 các dòng trong cùng container
+        align-content: start / center / end / space-between / space-evenly 
+    */
+    align-content: center;
+}

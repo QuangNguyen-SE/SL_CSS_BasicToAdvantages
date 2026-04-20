@@ -1,0 +1,15 @@
+
+/*
+    flex-direction: thay đổi chiều hướng các thẻ
+        1. row: chiều ngang
+        2. column: chiều dọc
+        3. row-reverse: chiều ngang nhưng ngược đảo thứ tự items
+        4. col-reverse: chiều dọc nhưng ngược đảo thứ tự items
+
+    Đặc biệt: direction column có thể khiến container của thẻ cha bự ra
+*/
+.box {
+    display: flex;
+    flex-direction: row-reverse;
+}
+

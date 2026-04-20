@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-box{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-a{
+            background-color: RED;
+            border-radius: 20%;
+            height: 100px;
+            color: white;
+        }
+
+        .btn-b{
+            display: none;
+            background-color: blue;
+            border-radius: 20%;
+            height: 100px;
+            color: white;
+        }
+        .hidden-choke{
+            display: none;
+        }
+        .flex-box:has(.box-a:hover) .btn-a{
+            display: none;
+        }
+
+        .flex-box:has(.box-a:hover) .btn-b{
+            display: block;
+        }
+
+        .flex-box:has(.box-b:hover) .btn-b{
+            display: none;
+        }
+
+        .flex-box:has(.box-b:hover) .btn-a{
+            display: block;
+        }
+        .flex-box:has(.box-a:hover) .hidden-choke{
+            display:block;
+        }
+        .flex-box:has(.box-b:hover) .hidden-choke{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <p>Can you click me?</p>
+    <div class="flex-box">
+        <div class="box-a">
+            <button class="btn-a" onclick="eventClicker()">CLICK ME !!!</button>
+        </div>
+        <p class="hidden-choke">Oh you miss click kid!!!</p>
+        <div class="box-b">
+            <button class="btn-b" onclick="eventClicker()" >CLICK ME !!!</button>
+        </div>
+    </div>
+    <script>
+        function eventClicker(){
+            alert("Congratulation you click me!!!")
+        }
+    </script>
+</body>
+</html>

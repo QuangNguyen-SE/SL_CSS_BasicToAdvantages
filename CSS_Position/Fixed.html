@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-modal{
+            display: none;
+            border: 2px solid gainsboro;
+            width: 500px;
+            height: 500px;
+            position: fixed;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            z-index: 10;
+        }
+        .form-modal h1{
+            text-align: center;
+        }
+        .form-modal p{
+            display: flex;
+            justify-content: center;
+        }
+        .btn-container{
+            text-align: center;
+        }
+        #btn-close{
+
+        }
+        /* on-screen nên đc viết dưới cùng vì khi 2 class có thuộc tính trùng nhau như display
+            CSS sẽ ưu tiên thằng nằm dưới cùng
+        */
+        .on-screen{
+            display: block !important; 
+            /* Hoặc dùng keyword important để ưu tiên thuộc tính này */
+        }
+        .overlay{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .on-screen{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div><button onclick="openForm()">Đơn đki</button></div>
+
+    <div class="overlay"></div>
+
+    <form class="form-modal">
+        <h1>Form dki</h1>
+        <p>Name:<input type="text"></p>
+        <br>
+        <p>Phone:<input type="number"></p>
+        <br>
+        <div class="btn-container">
+            <button id="btn-submit" type="button" onclick="">Submit</button>
+            <button id="btn-close" type="button" onclick="closeForm()">close</button>
+        </div>
+    </form>
+    <h1>Scroll chuột để thấy position fixed</h1>
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+    <h1>5</h1>
+    <h1>6</h1>
+    <h1>7</h1>
+    <h1>8</h1>
+    <h1>9</h1>
+    <h1>10</h1>
+    <h1>11</h1>
+    <h1>12</h1>
+    <h1>13</h1>
+    <h1>14</h1>
+    <h1>15</h1>
+    <h1>16</h1>
+    <h1>17</h1>
+    <h1>18</h1>
+    <h1>19</h1>
+    <h1>20</h1>
+    <script>
+        const openForm=()=>{
+            document.getElementsByClassName("form-modal")[0].classList.add("on-screen");
+            document.getElementsByClassName("overlay")[0].classList.add("on-screen");
+        }
+        const closeForm=()=>{
+            document.getElementsByClassName("form-modal")[0].classList.remove("on-screen");
+            document.getElementsByClassName("overlay")[0].classList.remove("on-screen");
+        }
+    </script>
+</body>
+</html>

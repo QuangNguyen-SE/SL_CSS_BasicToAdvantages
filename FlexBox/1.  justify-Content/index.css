@@ -1,0 +1,17 @@
+.pond-1{
+    display: flex;
+    justify-content: center;
+}
+
+.pond-2{
+    display: flex;
+    justify-content: space-around;
+}
+.pond-3{
+    display: flex;
+    justify-content: space-between;
+}
+.pond-4{
+    display: flex;
+    justify-content: space-between;
+}

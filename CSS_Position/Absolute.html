@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .relative-tag {
+            border: 2px solid rgb(119, 15, 15);
+            height: 100px;
+            width: 300px;
+            position: relative;
+            top: 20px;
+            left: 40px;
+        }
+        .absolute-tag-child{
+            border: 2px solid;
+            width: fit-content;
+            position: absolute;
+/* Absolute là position phụ thuộc, nếu thẻ cha của nó là position nào thì con là position như vậy 
+    Nếu ko có thẻ cha làm position, tức là nó là thẻ ngoài thì nó sẽ dựa theo position của thẻ <body>
+*/
+            left: 70px;
+            top: 50px;
+        }
+
+        .absolute-tag-outside{
+            border: 2px solid;
+            width: fit-content;
+            position: absolute;
+            /* Outside nó vẫn có thể chỉnh left - top đc */
+            top: 200px;
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="relative-tag">
+        This is the position: relative.
+        <div class="absolute-tag-child">
+            This is the position: Absolute inside
+        </div>
+    </div>
+    <div class="absolute-tag-outside">This is the position: Absolute outside</div>
+
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+    <h1>5</h1>
+    <h1>6</h1>
+    <h1>7</h1>
+    <h1>8</h1>
+    <h1>9</h1>
+    <h1>10</h1>
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+    <h1>5</h1>
+    <h1>6</h1>
+    <h1>7</h1>
+    <h1>8</h1>
+    <h1>9</h1>
+    <h1>10</h1>
+
+</body>
+
+</html>

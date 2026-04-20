@@ -1,0 +1,29 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+.box{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.pic-1 {
+    align-self: flex-start;
+    justify-self: start; 
+    /* Justify-self ko điều khiển được các item con bởi vì
+        Trong flexbox container được xem là 1 ko gian 1 chiều
+        Trục chính chỉ có 1 và đc quản lí bởi container của thẻ cha ko phải thẻ con (justify-content)
+
+        khác với flex, grid là ko gian 2 chiều
+        nên việc cả phần tử con di chuyển qua lại tự do trong grid đều rất dễ
+    */
+}
+
+.pic-2 {
+    align-self: center;
+}
+
+.pic-3 {
+    align-self: flex-end;
+}

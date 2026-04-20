@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .static-tag{
+            border: 2px solid rgb(6, 79, 251);
+            width: fit-content;
+            position: static;
+            left: 30px; 
+            /* Left ở đây ko dùng được là do position là static nghĩa là vị trí tĩnh */
+        }
+        .relative-tag{
+            border: 2px solid rgb(119, 15, 15);
+            width: fit-content;
+            position: relative; 
+            /* relative position cho phép thẻ di chuyển tự do trên trang web ở bất kì vị trí nào bằng css */
+            top: 35px;
+            left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="static-tag">
+        This is the position: static (default)
+    </div>
+    <p>The position tag: can not move or doing anything</p>
+    <br>
+    <div class="relative-tag">
+        This is the position: relative.
+    </div>
+    <p>Ahihi</p>
+</body>
+</html>

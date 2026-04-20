@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-box {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-a {
+            background-color: RED;
+            border-radius: 20%;
+            height: 100px;
+            color: white;
+        }
+
+        .btn-b {
+            display: block;
+            background-color: blue;
+            border-radius: 20%;
+            height: 100px;
+            color: white;
+        }
+
+        .hidden-choke {
+            display: none;
+        }
+
+        .is-hidden{
+            display: none;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <p>Can you click me?</p>
+    <div class="flex-box">
+        <div class="box-a">
+            <button class="btn-a" onclick="eventClicker()">CLICK ME !!!</button>
+        </div>
+        <p class="hidden-choke">Oh you miss click <span id="miss-count"></span> kid!!!</p>
+        <div class="box-b">
+            <button class="btn-b is-hidden" onclick="eventClicker()">CLICK ME !!!</button>
+        </div>
+    </div>
+    <script>
+        const btnA=document.querySelector(".btn-a");
+        const btnB=document.querySelector(".btn-b");
+        let count=0;
+        btnA.onmouseenter =()=>{
+            btnA.classList.add("is-hidden");
+            btnB.classList.remove("is-hidden");
+            document.getElementsByClassName("hidden-choke")[0].style.display = "block";
+            document.getElementById("miss-count").innerText = `${++count}`;
+        }
+
+        btnB.onmouseenter =()=>{
+            btnB.classList.add("is-hidden");
+            btnA.classList.remove("is-hidden");
+            document.getElementsByClassName("hidden-choke")[0].style.display = "block";
+            document.getElementById("miss-count").innerText = `${++count}`;
+        }
+        
+        let score = 0;
+        function eventClicker() {
+                document.getElementsByClassName("hidden-choke")[0].style.display = "none";
+                alert(`Congratulation you click me: ${++score} times !!!`);
+            }
+        
+    </script>
+</body>
+
+</html>

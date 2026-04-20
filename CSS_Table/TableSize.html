@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Phần này dùng để chỉnh size */
+        table {
+            width: 100%;
+
+        }
+        
+        td, th{
+            display: table-cell;
+            height: auto;
+            width: auto;
+            padding: 50px;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        th,
+        td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Table Size chỉ nên dùng width ko đc dùng height -->
+    <!-- Muốn chỉnh độ rộng ko gian bên trong 1 table thì dùng Padding -->
+    <div>
+        <table>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Age</th>
+                <th>Salary</th>
+            </tr>
+            <tr>
+                <td>Petter</td>
+                <td>Griffin</td>
+                <td>40</td>
+                <td>200$</td>
+            </tr>
+            <tr>
+                <td>Lois</td>
+                <td>Griffin</td>
+                <td>40</td>
+                <td>0$</td>
+            </tr>
+            <tr>
+                <td colspan="2">Nguyen Minh Quang</td>
+                <td>40</td>
+                <td>0$</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

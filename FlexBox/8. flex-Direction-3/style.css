@@ -1,0 +1,10 @@
+/*
+    khi direction bị thay đổi trục main-axis cũng thay đổi theo
+    align-items và justify-content cũng bị thay dổi theo
+    chiều và hướng đều bị thay đổi bởi flex-direction 
+*/
+.box{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}

@@ -1,0 +1,9 @@
+/*
+    khi direction bị thay đổi trục main-axis cũng thay đổi theo
+    align-items: chiều cũng sẽ bị thay đổi theo 
+*/
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

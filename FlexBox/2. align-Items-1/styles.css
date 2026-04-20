@@ -1,0 +1,24 @@
+/*
+    đây là chỗ setting các thẻ full màn hình
+    mặc định độ dài độ rộng của các thẻ phụ thuộc vào các items bên trong nó
+
+    align-items là thứ để chỉnh các thẻ con theo chiều dọc trong container flexbox;
+    align-items sẽ bao gồm 5 thuộc tính lần lượt là:
+        1. flex-start
+        2. flex-end
+        3. center
+        4. baseline
+        5. stretch (default)
+*/
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+div{
+    border-style: dotted; /* dùng để hình dung baseline dễ hơn */
+}
+.box{
+    display: flex;
+    align-items: flex-end; /* hãy thử cả 4 ở đây để cảm nhận sự khác biệt*/
+}

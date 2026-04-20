@@ -1,0 +1,14 @@
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pic-2{
+    align-self: flex-end;
+}
+
+

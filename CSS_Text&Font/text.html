@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: white;
+            background-color: black;
+            height: 100px;
+            
+        }
+        .example-text-alignment{
+            color: white;
+            background-color: dimgray;
+            width: 50%;
+            height: 50px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <p>
+
+    </p>
+    <p>
+        color: dùng để chỉnh màu chữ.
+        text-align: dùng để căn chỉnh văn bản theo chiều ngang trong phạm vi width của thẻ
+        verticle-align: dùng để căn chỉnh văn bản theo chiều dọc trong phạm vi height của thẻ (ko có tác dụng với các thẻ block)
+        text-decorate: dùng để sử dụng các đg gạch chân
+        text-transform: dùng để in hoa
+        text spacing: (text-indent, letter spacing, line height, word-spacing, white-space)
+        text-shadow: x:0px , y:0px
+    </p>
+    <p>
+        Bạn hãy tưởng tượng một dòng chữ trên trang web giống hệt như những dòng kẻ trong quyển vở ô ly của học sinh.Trong CSS,
+        mỗi khi bạn viết một dòng chữ (hoặc các phần tử inline nằm cạnh nhau), trình duyệt sẽ tạo ra một hàng ngang vô hình gọi
+        là Line Box. Bên trong Line Box này có một đường ranh giới cực kỳ quan trọng gọi là Baseline (Đường cơ sở) – đây là
+        đường mà hầu hết các chữ cái sẽ "ngồi" lên (trừ các nét ngoặc rủ xuống của chữ g, y, p, q).Tác dụng thực sự của
+        vertical-align: Nó được sinh ra để quyết định xem một từ khóa, một cái icon nhỏ span, hay một tấm ảnh img nằm xen
+            giữa đoạn văn bản... sẽ trồi lên hay sụt xuống so với cái đường Baseline (hoặc so với chiều cao của chữ cái) trên
+            cùng một dòng đó.Ví dụ: Bạn dùng vertical-align: super để làm số mũ ($x^2$), hoặc vertical-align: sub để làm chỉ số
+            hóa học ($H_2O$).2. Tại sao Thẻ Block lại nằm ngoài quy luật này?Như mình đã nói ở trước, thẻ Block (như div, p)
+                    mang bản chất là một "Khối gạch" chắn ngang đường.Khi trình duyệt đọc thấy một thẻ Block, nó lập tức ngắt
+                    cái "Line Box" (dòng kẻ vở) hiện tại.Nó vứt bỏ dòng kẻ đó, đẩy xuống một vùng không gian hoàn toàn mới, và
+                    thẻ Block đó đứng một mình một cõi, chiếm trọn 100% chiều ngang.Vì thẻ Block không hề nằm trên "dòng kẻ vở"
+                    cùng với bất kỳ đoạn text nào khác, nên trình duyệt sẽ bối rối: "Ơ, cái khối này đâu có nằm trên dòng chữ
+                    nào đâu mà bắt tôi căn chỉnh nó so với Baseline hay Top/Bottom của chữ?" -> Kết quả là trình duyệt phớt lờ
+                    lệnh vertical-align của bạn.
+
+                    Đến đây thì bạn đã có thể tự tin vỗ ngực xưng tên "master" về cái thuộc tính hắc búa này rồi. Chỉ cần nhớ câu thần chú 2
+                    vế này thôi:
+                    
+                    Đứng ở inline/inline-block: Chỉnh chính bản thân cái thẻ lên xuống so với dòng kẻ.
+                    
+                    Đứng ở table-cell: Chỉnh nội dung bên trong thẻ trượt lên xuống trong không gian của ô.
+    </p>
+    <br/>
+    <div>
+        ok
+        <p class="example-text-alignment">
+            This is the content
+        </p>
+    </div>
+
+
+</body>
+</html>
