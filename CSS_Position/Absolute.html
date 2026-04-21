@@ -19,7 +19,9 @@
             border: 2px solid;
             width: fit-content;
             position: absolute;
-/* Absolute là position phụ thuộc, nếu thẻ cha của nó là position nào thì con là position như vậy 
+/* Absolute là position phụ thuộc, nếu thẻ tổ tiên của nó là position nào khác static thì con là position như vậy.
+            vidu: thẻ cha là static, nhưng thẻ ông nội nó là relative thì nó sẽ bám theo relative
+                Nếu trong các thẻ tổ tiên ko có thẻ nào khác static nó sẽ bám lấy thẻ body và dựa vào đó để căn chỉnh viewport
     Nếu ko có thẻ cha làm position, tức là nó là thẻ ngoài thì nó sẽ dựa theo position của thẻ <body>
 */
             left: 70px;
