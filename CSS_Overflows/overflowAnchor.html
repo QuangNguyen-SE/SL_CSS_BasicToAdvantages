@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow anchor</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+            overflow-y: scroll;
+            overflow-anchor: none;
+        }
+        .green-box{
+            display: block;
+            background-color: green;
+            height: 20px;
+            width: 20px;
+        }
+        .on-screen{
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <h2>Testing overflow-anchor</h2>
+    <div>
+        Overflow-anchor: <input type="text" placeholder="none | auto" id="userInput">
+        <button onclick="getInput()">Change value</button>
+    </div>
+    <br>
+    <div class="box">
+        <div id="box1"></div>
+        <h2>Title</h2>
+        <div>Click button để xem hiệu ứng</div>
+        <div>của overflow-anchor</div>
+        <div>none và auto</div>
+        <div>None: giữ yên thanh bar tại vị trí</div>
+        <div>Auto: thanh bar sẽ bị dịch truyển lên xuống</div>
+        <button onclick="myFunction()">Click me!!</button>
+        <h2>Title</h2>
+        <div>Click button để xem hiệu ứng</div>
+        <div>của overflow-anchor</div>
+        <div>none và auto</div>
+        <div>None: giữ yên thanh bar tại vị trí</div>
+        <div>Auto: thanh bar sẽ bị dịch truyển lên xuống</div>
+    </div>
+
+    <script>
+        function myFunction(){
+            let newDiv=document.createElement("div");
+            let box =document.querySelector("#box1");
+            newDiv.className = "green-box";
+            box.appendChild(newDiv);
+        }
+        function getInput(){
+            let val = document.getElementById("userInput").value;
+            document.querySelector(".box").style.overflowAnchor = val;
+            console.log(val)
+        }
+    </script>
+</body>
+</html>

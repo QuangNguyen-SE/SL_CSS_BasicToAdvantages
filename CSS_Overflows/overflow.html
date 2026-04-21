@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .overflow-visible{
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
+            /* Overflow mặc định của các thẻ là visible, nên ko cần gõ thuộc tính overflow: visible */
+        }
+        .overflow-scroll{
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
+            overflow: scroll;
+        }
+        .overflow-hidden{
+            border: 1px solid;
+            width: fit-content;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .overflow-auto{
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
+            overflow: auto;
+        }
+
+        .hidden-line{
+            display: none;
+        }
+
+        .overflow-auto:hover *{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="overflow-visible">
+            <h2>Visible(default)</h2>
+            <p>My favor fruit</p>
+            <ul>
+                <li>Apple</li>
+                <li>Grape</li>
+                <li>Banana</li>
+                <li>Guava</li>
+                <li>Watermelon</li>
+            </ul>
+        </div>
+        <div class="overflow-scroll">
+            <h2>scroll</h2>
+            <p>My favor fruit</p>
+            <ul>
+                <li>Apple</li>
+                <li>Grape</li>
+                <li>Banana</li>
+                <li>Guava</li>
+                <li>Watermelon</li>
+            </ul>
+        </div>
+        <div class="overflow-hidden">
+            <h2>Hidden</h2>
+            <p>My favor fruit</p>
+            <ul>
+                <li>Apple</li>
+                <li>Grape</li>
+                <li>Banana</li>
+                <li>Guava</li>
+                <li>Watermelon</li>
+            </ul>
+        </div>
+
+        <div class="overflow-auto">
+            <h2>auto</h2>
+            <p class="hidden-line">My favor fruit</p>
+            <p class="hidden-line">
+                auto giống với scroll chỉ khi nào nó cần đc 
+                append thì nó sẽ tự động thêm thanh trượt vào
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
