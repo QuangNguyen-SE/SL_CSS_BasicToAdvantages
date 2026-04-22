@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float-css</title>
+    <style>
+        .pic-1{
+            float: left;
+            width: 200px;
+            height: 200px;
+            /* Float phải đi kèm với width và height, 
+                nếu ko float sẽ mất tác dụng với các thẻ block
+                vì nó đã chiếm trọn 1 dòng 
+            */
+            /* 
+                đối với các thẻ display: inline 
+                float sẽ tự động đổi nó thành display: block 
+            */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Change value of atribute Float here
+        <select name="" id="myInput">
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="none">None</option>
+        </select>
+        <button id="myInput" onclick="myFunction()">Change</button>
+    </div>
+    <p>
+        Trong vidu này, thuộc tính float của CSS được biểu hiện rõ, float chỉ có tác dụng trên thẻ ảnh như img, video, audio
+        nó chỉ có 3 value chính: left, right, none(default)
+    </p>
+    <hr>
+    <div>
+        <img class="pic-1" src="./pic/pineapple.jpg" alt="Pineapple" width="300" height="300">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem
+        egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor
+        vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in
+        odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper
+        ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida
+        venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus.
+        Mauris quis diam velit.
+    </div>
+
+    <script>
+        function myFunction(){
+            let val = document.getElementById("myInput").value;
+            console.log(val);
+            document.querySelector(".pic-1").style.float = val;
+        }
+    </script>
+</body>
+</html>
