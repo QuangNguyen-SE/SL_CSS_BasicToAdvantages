@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearfix-hack</title>
+    <style>
+        .float-tag {
+            background-color: #dddd;
+            width: 33.33%;
+            float: left;
+            height: 200px;
+        }
+
+        .float-tag:nth-child(even) {
+            background-color: #201f1f56;
+        }
+
+        .clearfix-hack::after {
+            content: "";
+            display: block;
+            /* Đổi display của thẻ thành block */
+            clear: both;
+            /* ranh giới của các thẻ float */
+            /* Bởi vì pseudo element ::after sẽ tạo ra 1 thẻ inline nằm dưới cùng
+                nên thay vì tạo ra 1 thẻ div rỗng có chứa thuộc tính clear fix ngầm phân chia ranh giới của thuộc tính float
+                thì ta dùng ::after nó sẽ tự tạo ra 1 thẻ inline sau khi trang web chạy
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clearfix-hack">
+        <div class="float-tag">Content-1</div>
+        <div class="float-tag">Content-2</div>
+    </div>
+    <p class="message">Nếu ko có clearfix thì dòng chữ ở đây sẽ bay lên nằm cùng các thẻ</p>
+    <hr>
+    <div class="">
+        <div class="float-tag">Content-1</div>
+        <div class="float-tag">Content-2</div>
+    </div>
+    <p class="message">Nếu ko có clearfix thì dòng chữ ở đây sẽ bay lên nằm cùng các thẻ</p>
+</body>
+
+</html>

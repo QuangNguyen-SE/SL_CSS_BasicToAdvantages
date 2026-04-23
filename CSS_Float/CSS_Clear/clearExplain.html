@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .div1 {
+            float: left;
+            padding: 10px;
+            border: 3px solid green;
+        }
+
+        .div2 {
+            padding: 10px;
+            border: 3px solid red;
+            width: 200px;
+        }
+
+        .div3 {
+            float: left;
+            padding: 10px;
+            border: 3px solid green;
+        }
+
+        .div4 {
+            padding: 10px;
+            border: 3px solid red;
+            width: 200px;
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Thuộc tính clear chỉ có tác dụng khi nó nằm sau các thẻ có thuộc tính float đằng trc</h2>
+    <p>Mục đích nó sinh ra là để cho các thẻ khác ko đè lên các thẻ có thuộc tính float</p>
+    <p>Như hàng rào bảo vệ</p>
+    <p>nếu có 2 thẻ có thuộc tính float, nó sẽ đc sắp xếp nằm kế nhau</p>
+
+    <h2>Without clear</h2>
+    <div class="div1">div1</div>
+    <div class="div2">div2 - div2 nằm đè lên div1. However, div2 ko có clear, 
+        nhưng tuy vậy chữ của div2 nằm xung quanh div1</div>
+
+    <h2>With clear: left</h2>
+    <div class="div3">div3</div>
+    <div class="div4">div4 - Here, clear: left; div4 nằm sau div 3 và ko còn đè lên nhau, on its left side.</div>
+    <div>Cách thẻ khác sau khi nằm sau thẻ có thuộc tính clear cũng sẽ ko nằm đè lên</div>
+
+</body>
+
+</html>
