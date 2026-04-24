@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div><img src="../picNumber/1.jpg" width="350px" alt=""></div>
-    <div><img src="../picNumber/2.jpg" width="350px" alt=""></div>
-    <div><img src="../picNumber/3.jpg" width="350px" alt=""></div>
-    <div><img src="../picNumber/4.jpg" width="350px" alt=""></div>
-    <div><img src="../picNumber/5.jpg" width="350px" alt=""></div>
-    <div><img src="../picNumber/6.jpg" width="350px" alt=""></div>
+    <p>
+        Change flex-direction here: 
+        <select name="" id="userSelect" class="userSelect">
+            <option value="column">Column</option>
+            <option value="row">Row</option>
+        </select>
+        <button onclick="myFunction()">Change</button>
+        Ctrl + Scroll to see responsive layout of flex-wrap !!!
+    </p>
+    <div class="flex-box">
+        <div><img src="../picNumber/1.jpg" width="350px" alt=""></div>
+        <div><img src="../picNumber/2.jpg" width="350px" alt=""></div>
+        <div><img src="../picNumber/3.jpg" width="350px" alt=""></div>
+        <div><img src="../picNumber/4.jpg" width="350px" alt=""></div>
+        <div><img src="../picNumber/5.jpg" width="350px" alt=""></div>
+        <div><img src="../picNumber/6.jpg" width="350px" alt=""></div>
+    </div>
+    <script src="edit.js"></script>
 </body>
+
 </html>

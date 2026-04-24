@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-box {
+            display: flex;
+        }
+
+        .pic-1 {
+            width: 300px;
+            flex-shrink: 1;
+        }
+
+        .pic-2 {
+            width: 300px;
+            flex-grow: 1;
+        }
+
+        .pic-3 {
+            width: 300px;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Flex-shrink là thuộc tính trái ngược với flex-grow
+        Từ bài 12-13-14 là các bài có thuộc tính liên quan với nhau
+        Flex-grow | Flex-shrink | Flex-basis là các thuộc tính bổ trợ nhau
+        
+        Flex-shrink giúp thu hẹp vùng ko gian của 1 thẻ con
+    -->
+    <p>Hình số 2 đã bị bóp méo mặc dù đã sẽ width của nó là 300px</p>
+    <div class="flex-box">
+        <img src="../picNumber/2.jpg" alt="" class="pic-1">
+        <img src="../picNumber/3.jpg" alt="" class="pic-2">
+        <img src="../picNumber/4.jpg" alt="" class="pic-3">
+    </div>
+</body>
+
+</html>

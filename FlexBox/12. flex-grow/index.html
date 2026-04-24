@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-box {
+            display:flex
+        }
+
+        .flex-item {
+            border: 1px solid;
+        }
+        .item-1{
+            flex-grow: 1;
+        }
+        .item-2{
+            flex-grow: 3;
+        }
+
+        .item-3{
+            flex-grow: 1;
+        }
+        .pic-1 {
+            width: 300px;
+        }
+
+        .pic-2 {
+            width: 300px;
+        }
+
+        .pic-3 {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Flex grow là 1 thuộc tính quan trọng trong display flex;
+        Giúp phân chia ko gian của các thẻ con bên trong thẻ cha
+    -->
+    <div class="flex-box">
+        <div class="flex-item item-1">
+            <img src="../picNumber/1.jpg" alt="" class="pic pic-1">
+        </div>
+        <div class="flex-item item-2">
+            <img src="../picNumber/2.jpg" alt="" class="pic pic-2">
+        </div>
+        <div class="flex-item item-3">
+            <img src="../picNumber/3.jpg" alt="" class="pic pic-3">
+        </div>
+    </div>
+
+</body>
+
+</html>

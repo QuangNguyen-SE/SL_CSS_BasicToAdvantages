@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-box {
+            display: flex;
+            flex-wrap: wrap;
+            /* Nhờ flex-wrap các thẻ sẽ ko bị overflow khi 
+                phóng to trang web hoặc gặp các thiết bị có màn hình nhỏ
+            */
+        }
+
+        .flex-item {
+            background-color: rgba(67, 59, 59, 0.443);
+            flex-basis: 400px;
+            /* flex-basis giúp các thẻ ko bị vượt quá kích thước mong muốn (giữ nguyên scale mong muốn) 
+            khi phóng to thu nhỏ làm vỡ kích thước
+            và layout tổng thể của trang web
+            */
+            flex-grow: 1;
+            /* Flex-grow giúp các thẻ xuống dòng che đậy những chỗ bị trống giúp trang web đẹp hơn */
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .flex-item:nth-child(even){
+            background-color: rgba(239, 235, 235, 0.772);
+        }
+
+        .item-1 {
+            width: inherit;
+            height: inherit;
+        }
+
+        .item-2 {
+            width: inherit;
+            height: inherit;
+        }
+
+        .item-3 {
+            width: inherit;
+            height: inherit;
+        }
+
+        .item-4 {
+            width: inherit;
+            height: inherit;
+        }
+
+        .item-5 {
+            width: inherit;
+            height: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        Responsive layout trong flex-box là sự kết hợp tuyệt vời giữa 3 thuộc tính
+            flex-grow : giúp che những khoảng trống của 1 line
+            flex-basis: giữ lại kích thước mong muốn của 1 thẻ 
+            flex-wrap: giúp các thẻ ko bị che khuất bởi màn hình nhỏ
+    -->
+    <p>Scorll-page để thấy sự vi diệu của responsive layout của flex-box</p>
+    <div class="flex-box">
+        <div class="flex-item">
+            <p class="item-1">Content-1</p>
+        </div>
+        <div class="flex-item">
+            <p class="item-2">Content-2</p>
+        </div>
+        <div class="flex-item">
+            <p class="item-3">Content-3</p>
+        </div>
+        <div class="flex-item">
+            <p class="item-4">Content-4</p>
+        </div>
+        <div class="flex-item">
+            <p class="item-5">Content-5</p>
+        </div>
+    </div>
+</body>
+
+</html>

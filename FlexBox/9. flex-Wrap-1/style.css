@@ -1,8 +1,10 @@
 html, body{
     height: 100%;
 }
-body{
+.flex-box{
     display:flex;
+    max-height: 1000px;
+    min-height: 200px;
 }
 /*
     flex-wrap: là thuộc tính quan trọng trong flex dimension
@@ -15,8 +17,10 @@ body{
     Flex-wrap: nowrap(default) / wrap(give addition line) / wrap-reverse (đảo chiều wrap)
 */
 
-body{
+.flex-box{
     flex-wrap: wrap;
     align-content: center; 
+    
+    /* flex-flow = flex-wrap + flex direction */
     /*align content chỉ dùng đc khi nó có 2 dòng trở lên, nếu chỉ có 1 dòng, nó sẽ ko dùng đc*/
 }

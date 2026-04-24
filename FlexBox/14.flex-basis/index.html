@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-box-1 {
+            display: flex;
+        }
+
+        .flex-item-1 {
+            flex-basis: 500px;
+            border: 1px solid;
+            flex-grow: 1px;
+            /* flex-grow và flex-shrink chia ko gian của thẻ con trong flex-box theo tỉ lệ */
+            /* Trong khi flex-basis chia theo kích thước mong muốn của chúng ta */
+            /* Nên flex-grow ko có tác dụng nếu sử dụng flex-basis */
+        }
+
+        .flex-item-2 {
+            flex-basis: 300px;
+            border: 1px solid;
+        }
+
+        .flex-item-3 {
+            flex-basis: 300px;
+            border:1px solid
+        }
+
+
+        .pic-1 {
+            width: 100px;
+            /* Vì ảnh hơi to nên set nhỏ lại thì mới thấy đc chức năng của flex-basis */
+            /* FLex-basis ko có tác dụng lên thẻ img
+            vì trong thẻ img đã cài mặc định sẵn min-width và min-height rồi 
+            Flex-basis về cơ bản nó ko đc phép chỉnh vào min width của thẻ img 
+            chỉ có width tự set của chúng ta mới động đc
+             */
+        }
+
+        .pic-2 {
+            width: 100px;
+        }
+
+        .pic-3 {
+            width: 100px;
+        }
+
+        .flex-box-2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pic-4 {
+            width: 100px;
+        }
+
+        .pic-5 {
+            width: 100px;
+        }
+
+        .pic-6 {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Flex-basis cũng giống như width và height cho 1 thẻ
+        Nhưng điều khác biệt là, flex-basis định hình kích cỡ không gian theo flex-direction: row / column
+        nếu Row nó sẽ định hình theo width
+        nếu column nó sẽ định hình theo height 
+        Lưu ý:
+            Width của 1 thẻ đc ưu tiên hơn flex-basis
+            nếu thẻ đã có width thì flex-basic ko có tác dụng.
+    -->
+    <div class="flex-box-1">
+        <div class="flex-item-1"><img src="../picNumber/1.jpg" alt="" class="pic-1"></div>
+        <div class="flex-item-2"><img src="../picNumber/2.jpg" alt="" class="pic-2"></div>
+        <div class="flex-item-3"><img src="../picNumber/3.jpg" alt="" class="pic-3"></div>
+    </div>
+    <hr>
+    <div class="flex-box-2">
+        <img src="../picNumber/4.jpg" alt="" class="pic-4">
+        <img src="../picNumber/5.jpg" alt="" class="pic-5">
+        <img src="../picNumber/6.jpg" alt="" class="pic-6">
+    </div>
+
+</body>
+
+</html>
