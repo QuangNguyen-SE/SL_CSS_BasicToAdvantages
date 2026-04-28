@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .outside-box {
+            border: 1px solid;
+            width: 200px;
+            height: auto;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* box-shadow: h-offset, v-offset, blur, spread, color |inset|initial|inherit;
+                h-offset: h ở đây ko phải là height mà là horizontal đg kẻ nằm ngang
+                v-offset: là vertical đg nằm dọc
+                blur: là độ mờ của bóng (chỉ số càng cao độ mờ càng mờ)
+                spread: độ rộng độ phủ của bóng
+                color: màu sắc của bóng
+            */
+            box-shadow: 10px 10px 10px 0px #000000;
+
+        }
+
+        .inside-box {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- box-shadow: h-offset, v-offset, blur, spread, color |inset|initial|inherit; -->
+    <div>
+        horizontal-offset: <input id="ho" type="number">
+        vertical-offset: <input id="vo" type="number">
+        blur: <input id="bl" type="number">
+        spread: <input id="sd" type="number">
+        <button onclick="myFunction()">Change</button>
+    </div>
+    <div class="outside-box">
+        <div class="inside-box">thẻ này sẽ cho chúng ta thấy hiệu ứng của box-shadow</div>
+    </div>
+    <script src="edit.js"></script>
+</body>
+
+</html>
