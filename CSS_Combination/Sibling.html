@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outside .inside {
+            /* khoảng trắng chính (space) trong css chính là 
+                Descendant: nghĩa là các thẻ con bên trong, bao gồm thẻ trong thẻ.
+            */
+            background-color: yellow;
+        }
+
+        .outside>.inside {
+            /* là đại diện cho các thẻ children những thẻ khác ko phải children như thẻ Grandchild ko ảnh hưởng*/
+            background-color: aqua;
+        }
+
+        .outside+.inside {
+            /* Thẻ mang class inside kế bên ngoài đầu tiên */
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outside">
+        Parent
+        <p class="inside">Child 1 (space, >)</p>
+
+        <div class="inside">
+            <p class="inside">GrandChild 1 (space)</p>
+        </div>
+
+        <p class="inside">Child 2 (space, >)</p>
+    </div>
+    <!-- <p class="strangeThing">unKnow Person</p> -->
+    <!-- Bắt buộc thẻ sibling này đằng trc nó ko có thẻ nào cản đg thì Sibling combinator mới có tác dụng -->
+    <p class="inside">Sibling 1 (+)</p>
+    <p class="inside">Sibling 2 (+)</p>
+</body>
+
+</html>

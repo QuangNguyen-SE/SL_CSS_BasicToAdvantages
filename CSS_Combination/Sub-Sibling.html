@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outside .inside {
+            /* khoảng trắng chính (space) trong css chính là 
+                Descendant: nghĩa là các thẻ con bên trong, bao gồm thẻ trong thẻ.
+            */
+            margin-left: 20px;
+            background-color: yellow;
+        }
+
+        .outside>.inside {
+            /* là đại diện cho các thẻ children những thẻ khác ko phải children như thẻ Grandchild ko ảnh hưởng*/
+            background-color: aqua;
+        }
+
+        .outside ~ .inside{
+            /* sub-sibling tất cả thẻ mang class inside cùng level với thẻ outside sẽ đc hưởng */
+            background-color: bisque;
+        }
+
+        .outside+.inside {
+            /* Thẻ mang class inside kế bên ngoài đầu tiên */
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outside">
+        Parent:
+        <p class="inside">Child 1 (space, >)</p>
+
+        <div class="inside">
+            <p class="inside">GrandChild 1 (space)</p>
+        </div>
+
+        <p class="inside">Child 2 (space, >)</p>
+    </div>
+    <p class="inside">Sibling 1 (+)</p>
+    <!-- Sub-sibling -->
+    <p>Unknow Tag</p>
+    <!-- Sub-sibling giống như sibling nma nó ko cần phải nằm trc hay nằm sau
+      chỉ cần nó nằm ở ngoài cùng level cùng với thẻ outside thì nó sẽ đc hưởng hiệu ứng css
+    -->
+    <p class="inside">Sibling 2 (~)</p>
+
+    <p class="inside">Sibling 3 (~)</p>
+
+    <p>Unknow Tag</p>
+
+    <p class="inside">Sibling 4 (~)</p>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outside .inside{
+            /* khoảng trắng chính (space) trong css chính là 
+                Descendant: nghĩa là các thẻ con bên trong, bao gồm thẻ trong thẻ.
+            */
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outside">
+        <p class="inside">Child 1</p>
+        <p class="inside">Child 2</p>
+    </div>
+    <p class="inside">Child 3</p>
+</body>
+</html>
