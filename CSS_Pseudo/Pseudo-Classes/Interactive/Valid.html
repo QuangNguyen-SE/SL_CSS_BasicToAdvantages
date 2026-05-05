@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valid-Document</title>
+    <style>
+        #userInput:hover{
+            background-color: antiquewhite;
+        }
+        /* Chỉ khi thuộc tính mang giá trị thì nó mới run */
+        #userInput:valid{
+            color: white;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <p>This is example of :valid pseudo-class</p>
+    <div>
+        <input type="text" id="userInput" required> 
+        <!-- ở đây bắt buộc phải có required trong ô input 
+            Vì nếu ko :valid sẽ cho rằng ô input rỗng đc xem là hợp lệ và thực thi css của nó 
+        -->
+        <label for="userInput"></label>
+    </div>
+</body>
+</html>

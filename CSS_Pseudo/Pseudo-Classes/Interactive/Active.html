@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active-PseudoClass</title>
+    <style>
+        #btn{
+            background-color: red;
+            color: white;
+            border-radius:20%;
+            width: 100px;
+            height: 100px;
+        }
+        #btn.isActive:active{
+            background-color: blue;
+        }
+        #btn.isFocus:focus{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <p>Active: </p>
+    <div>
+        <select name="" id="choice">
+            <option value="active" selected>Active</option>
+            <option value="focus">Focus</option>
+        </select>
+        <button onclick="myFunction()">Change</button>
+    </div>
+    <br>
+    <div><button id="btn">Click and Hold me</button></div>
+    <script>
+        function myFunction(){
+            let val=document.getElementById("choice").value;
+            if(val=="active"){
+                var but = document.querySelector("#btn");
+                but.classList.remove("isFocus");
+                but.classList.add("isActive");
+            }
+            if(val == "focus"){
+                var but = document.querySelector("#btn");
+                but.classList.remove("isActive");
+                but.classList.add("isFocus");
+            }
+        }
+    </script>
+</body>
+</html>
