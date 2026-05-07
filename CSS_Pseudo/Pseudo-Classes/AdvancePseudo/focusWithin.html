@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search-container {
+            display: flex;
+            align-items: center;
+            border: 2px solid #d1d5db;
+            /* Viền xám nhạt mặc định */
+            border-radius: 8px;
+            padding: 4px 8px;
+            background-color: white;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* ĐÂY LÀ ĐIỂM MẤU CHỐT: 
+        Khi ô input HOẶC button bên trong được focus, khung .search-container sẽ đổi style */
+        .search-container:focus-within {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            /* QUAN TRỌNG: Bỏ outline mặc định vì phần tử cha đã gánh vác UI focus */
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" placeholder="Tìm kiếm tài liệu..." />
+        <button class="search-btn">Tìm</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS */
+        /* 1. Ẩn thông báo theo mặc định */
+        .secret-message {
+            display: none;
+        }
+
+        /* 2. Khi input có id 'toggleMessage' được :checked, 
+      tìm thẻ div có class 'secret-message' nằm chung cấp và đổi display thành block */
+        #toggleMessage:checked~.secret-message {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML -->
+    <input type="checkbox" id="toggleMessage">
+    <label for="toggleMessage">Bấm vào đây để xem bí mật</label>
+
+    <div class="secret-message">
+        Đây là nội dung bị ẩn. Nó chỉ hiện ra khi checkbox được tích!
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article {
+            padding: 20px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            transition: background-color 0.5s ease;
+        }
+        article:target {
+            background-color: #fffacd;
+            /* Đổi nền thành màu vàng nhạt để gây chú ý */
+            border-color: #ffcc00;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#chuong1">Đi đến Chương 1</a> |
+        <a href="#chuong2">Đi đến Chương 2</a>
+    </nav>
+
+    <article id="chuong1">
+        <h2>Chương 1: Khởi đầu</h2>
+        <p>Nội dung của chương 1 ở đây...</p>
+    </article>
+
+    <article id="chuong2">
+        <h2>Chương 2: Thử thách</h2>
+        <p>Nội dung của chương 2 ở đây...</p>
+    </article>
+</body>
+
+</html>
