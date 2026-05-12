@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child</title>
+    <style>
+        :root {
+            --white-text: #ffffff;
+            --table-head-bg-color: #3d59e0;
+            --table-row: #a6a2a2;
+        }
+
+        table {
+            border: hidden;
+            height: 150px;
+            width: 300px;
+            border-collapse: collapse;
+        }
+
+        thead {
+            text-align: center;
+        }
+
+        tbody {
+            text-align: center;
+        }
+
+        th,
+        tr,
+        td {
+            border: 1px solid;
+
+        }
+
+        /* Phần pseudo-class */
+
+        th {
+            background-color: var(--table-head-bg-color);
+            color: var(--white-text);
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: var(--table-row);
+            color: var(--white-text)
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No.1</td>
+                    <td>Quang</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>No.2</td>
+                    <td>Hang</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>No.3</td>
+                    <td>Nigga</td>
+                    <td>Unknow</td>
+                </tr>
+                <tr>
+                    <td>No.4</td>
+                    <td>Gojo</td>
+                    <td>Unknow</td>
+                </tr>
+                <tr>
+                    <td>No.5</td>
+                    <td>Sukuna</td>
+                    <td>Unknow</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
