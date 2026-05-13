@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --bg-color-1: #ff0000;
+            --bg-color-2: #0000ff;
+            --bg-color-3: #000000;
+            --bg-color-4: #00ff00;
+            --font-color: #ffffff;
+        }
+        .parent-1 :not(.child-1, .child-8, .child-9){
+            background-color: var(--bg-color-3);
+            color: var(--font-color);
+        }
+        .parent-1 :is(.child-3, .child-4){
+            background-color: var(--bg-color-2);
+        }
+        .parent-1 :where(.child-5, .child-8, .child-9){
+            background-color: var(--bg-color-1);
+            color: var(--font-color);
+            /* Chúng ta có thể thấy rằng where ở đây ko hoạt động
+                Mặc dù trong css mặc định các khai báo nằm ở dưới cùng luôn có độ ưu tiên cao nhất nhưng where thì ko
+                Where có độ ưu tiêng rất thấp, bởi vì sao ko đc hưởng css vì :not() đã setting và đc browser ưu tiên hơn
+                Nhưng nếu đổi not là child-5 thì nó sẽ có hiệu ứng
+            */
+        }
+
+        .parent-1:has(.child-6, .child-10) .child-7{
+            /* Lưu ý điều kiện has chỉ áp dụng cho 1 thẻ duy nhất, có thể có vô số điều kiện 
+            nhưng chỉ có 1 thẻ đc áp dụng
+            Dấu phẩy trong điều kiện có nghĩa là or ||
+            */
+            background-color: var(--bg-color-4);
+            color:#000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent-1">
+        <p class="child-1">Child-1 (:not)</p>
+        <p class="child-2">Child-2</p>
+        <p class="child-3">Child-3 (:is)</p>
+        <p class="child-4">Child-4 (:is)</p>
+        <p class="child-5">Child-5 (:where)</p>
+        <p class="child-6">Child-6 (:has)</p>
+        <p class="child-7">Child-7 (:has)</p>
+        <p class="child-8">Child-8 (:where, :not)</p>
+        <p class="child-9">Child-9 (:where, :not)</p>
+        <p class="child-10">Child-10</p>
+    </div>
+</body>
+</html>

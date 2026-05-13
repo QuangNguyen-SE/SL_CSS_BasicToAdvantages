@@ -6,13 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
+    <ul type="">
         List-style-type: for unorder_List
         <li style="list-style-type: circle">circle</li>
         <li style="list-style-type: disc">disc (default)</li>
         <li style="list-style-type: square">square</li>
     </ul>
-    <ol>
+    <ol type=""> 
+        <!-- Chúng ta có 2 cách khai báo kiểu định dạng list 
+            1. khai báo trong thuộc tính type của ul hoặc ol (recommed)
+            2. khai báo trực tiếp trong thẻ con <li> 
+        -->
         List-style-type: for order_List
         <li style="list-style-type: upper-roman;">upper-roman</li>
         <li style="list-style-type: lower-roman;">lower-roman</li>
@@ -31,5 +35,30 @@
         <dd></dd>
         <dt></dt>
     </dl>
+    <hr>
+    <div>
+        <p>Choose ur style of list</p>
+        Here: <select id="choice">
+            <option value="a">type="a"</option>
+            <option value="A">type="A"</option>
+            <option value="i">type="i"</option>
+            <option value="1">type="1"</option>
+        </select>
+        <button onclick="myFunction()">Change</button>
+    </div>
+    <ol id="list-1" type="a">
+        <li>item-1</li>
+        <li>item-2</li>
+        <li>item-3</li>
+        <li>item-4</li>
+        <li>item-5</li>
+    </ol>
+    <script>
+        function myFunction(){
+            let choice = document.getElementById("choice").value;
+            let action = document.getElementById("list-1").type=choice;
+            return action;
+        }
+    </script>
 </body>
 </html>
