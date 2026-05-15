@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item-1{
+            border-radius: 20px;
+            border: 1px solid gray;
+            height: 150px;
+            width: 100px;
+        }
+        .item-1::before{
+            content: "So Luong = 0";
+            margin: 10px;
+        }
+        .item-1::after{
+            content: "Out-of-stocks";
+        }
+        .item-2::before{
+            content: "So luong = 10"
+        }
+        .item-2::after{
+            content: "Available";
+        }
+    </style>
+</head>
+<body>
+    <div class="item-1">
+        <p>Addidas</p>
+    </div>
+    <hr>
+    <div class="item-2">
+        <p>nike</p>
+    </div>
+</body>
+</html>

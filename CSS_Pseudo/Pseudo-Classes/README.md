@@ -1,6 +1,7 @@
 ## What is pseudo-class?
 - Pseudo-class is a pre-written class in CSS
-- Allow to **style one or many elements/nodes in DOM tree** base on **user interaction without Javascript**
+- Allow to **style STAGE of one or many elements/nodes in DOM tree** base on **user interaction without Javascript**
+- Pseudo class use ":" to declare
 ## How many specific group type of Pseudo-class?
 1. Interactive class
     - User's interaction 
