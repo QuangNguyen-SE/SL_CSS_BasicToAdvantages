@@ -1,0 +1,138 @@
+/* =========================================
+   1. RESET CSS & CÀI ĐẶT CHUNG
+   ========================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Khai báo biến màu sắc dùng chung */
+:root {
+    --bg-color: #ffffff;
+    /* Màu nền menu */
+    --text-color: #333333;
+    /* Màu chữ */
+    --primary-color: #4f46e5;
+    /* Màu chủ đạo (Xanh tím) */
+    --hover-color: #3730a3;
+    /* Màu khi di chuột vào nút */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    /* Màu nền trang web hơi xám để làm nổi bật menu trắng */
+}
+
+/* =========================================
+   2. BỐ CỤC NAVBAR (DÙNG FLEXBOX)
+   ========================================= */
+header {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    /* Đổ bóng mờ tạo chiều sâu */
+    position: sticky;
+    /* Giữ menu dính chặt trên cùng khi cuộn trang */
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    /* Đẩy Logo sang trái, Nút sang phải, Menu ở giữa */
+    align-items: center;
+    /* Căn các phần tử đều nhau theo chiều dọc */
+    max-width: 1200px;
+    /* Giới hạn độ rộng tối đa của menu trên màn hình lớn */
+    margin: 0 auto;
+    /* Căn giữa navbar */
+    padding: 15px 30px;
+    /* Khoảng cách trên dưới 15px, trái phải 30px */
+}
+
+/* =========================================
+   3. ĐỊNH DẠNG CHI TIẾT
+   ========================================= */
+/* Định dạng Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-color);
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+/* Định dạng danh sách Menu */
+.nav-links {
+    list-style: none;
+    /* Xóa dấu chấm tròn */
+    display: flex;
+    gap: 30px;
+    /* Khoảng cách giữa các chữ trong menu */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    /* Xóa gạch chân mặc định của thẻ <a> */
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    /* Dùng để làm mốc cho hiệu ứng gạch chân bên dưới */
+    transition: color 0.3s ease;
+    /* Hiệu ứng chuyển màu mượt mà */
+}
+
+/* =========================================
+   4. HIỆU ỨNG TƯƠNG TÁC (PSEUDO-CLASS / ELEMENT)
+   ========================================= */
+/* Khi di chuột vào chữ (Pseudo-class) */
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+/* Tạo thanh gạch chân ẩn đi (Pseudo-element) */
+.nav-links li a::after {
+    content: "";
+    /* Bắt buộc phải có để ::after hoạt động */
+    position: absolute;
+    bottom: -5px;
+    /* Nằm dưới mép chữ 5px */
+    left: 0;
+    width: 0%;
+    /* Ban đầu rộng 0% (không hiển thị) */
+    height: 2px;
+    /* Độ dày của đường gạch chân */
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    /* Hiệu ứng giãn chiều rộng mất 0.3 giây */
+}
+
+/* Khi hover vào chữ, gạch chân sẽ trượt dài ra 100% */
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   5. NÚT LIÊN HỆ (NÚT CTA)
+   ========================================= */
+.btn-contact {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    /* Bo tròn hai đầu */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-contact:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+    /* Hiệu ứng nút nảy lên một chút khi hover */
+}
