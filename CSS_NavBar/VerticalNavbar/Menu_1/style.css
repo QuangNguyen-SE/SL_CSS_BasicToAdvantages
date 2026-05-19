@@ -19,7 +19,11 @@ body{
 }
 
 .menu-bar{
-    box-shadow: -8px 10px 8px 0px #000000;
+    overflow-y: scroll;
+    position: sticky;
+    top:0;
+    align-self: stretch;
+    height: 100vh;
 }
 
 .menu-bar .menu-list{
