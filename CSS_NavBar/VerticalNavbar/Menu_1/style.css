@@ -1,0 +1,73 @@
+body{
+    display: flex;
+    justify-content: space-evenly;
+}
+.menu-bar{
+    flex-grow: 1;
+    margin-right: 50px;
+    background-color: #817f7f;
+}
+.content-node{
+    flex-grow: 8;
+    flex-wrap: wrap;
+}
+
+.logo{
+    color: #ffffff;
+    font-size: large;
+    text-align: center;
+}
+
+.menu-bar{
+    box-shadow: -8px 10px 8px 0px #000000;
+}
+
+.menu-bar .menu-list{
+    margin-top: 20px;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.menu-item{
+    background-color: #b6b1b1;
+    padding: 20px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    /* Z-index ở đây làm móc để pseudo-ele phủ màu nền trên hay dưới lớp chữ */
+
+    /* Khái niệm stacking-order */
+}
+
+.menu-item a{
+    font-size: large;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu-item::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    /* Chiều rộng ban đầu là 0 (chưa có nền) */
+    height: 100%;
+    background-color: #4fd80546;
+
+    z-index: -1;
+    /* Đẩy lớp màu nền này lùi lại phía sau chữ */
+    transition: width 0.5s ease;
+    /* Chuyển động mượt mà khi thay đổi width */
+}
+
+.menu-item:hover::before{
+    width: 100%;
+}
+
