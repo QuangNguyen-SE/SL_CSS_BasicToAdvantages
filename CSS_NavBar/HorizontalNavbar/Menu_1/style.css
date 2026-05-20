@@ -59,8 +59,9 @@
         font-size: 20px;
         display: flex;
         align-items: center;
-        /* Ô thẻ a giãn nỡ hết cỡ */
+        
         height: 100%;
+        /* Ô thẻ a giãn nỡ hết cỡ */
         padding: 0 20px;
         transition: background-color 0.3s ease;
 }

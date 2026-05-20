@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pro Dropdown Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="#">Trang chủ</a></li>
-
-            <!-- Mục chứa Dropdown -->
-            <li class="dropdown">
-                <a href="#">Dịch vụ ▼</a>
-
-                <!-- Menu thả xuống -->
-                <ul class="dropdown-menu">
-                    <li><a href="#">Thiết kế Web</a></li>
-                    <li><a href="#">SEO Marketing</a></li>
-                    <li><a href="#">Quản trị Máy chủ</a></li>
+    <nav class="menu-bar">
+        <div class="logo">Menu-Bar</div>
+        <ul class="menu-list">
+            <li class="menu-item"><a href="">Home</a></li>
+            <li class="menu-item menu-dropdown">
+                <a href="">Product</a>
+                <ul class="product-list">
+                    <li class="product-item"><a href="">Samsung</a></li>
+                    <li class="product-item"><a href="">Iphone</a></li>
+                    <li class="product-item"><a href="">Xioami</a></li>
+                    <li class="product-item"><a href="">Huewaii</a></li>
                 </ul>
             </li>
-
-            <li><a href="#">Tin tức</a></li>
-            <li><a href="#">Liên hệ</a></li>
+            <li class="menu-item"><a href="">Services</a></li>
+            <li class="menu-item"><a href="">Contact</a></li>
         </ul>
+        <div class="btn-menu">
+            <button class="btn-l">Login</button>
+        </div>
     </nav>
 
 </body>
-
 </html>
