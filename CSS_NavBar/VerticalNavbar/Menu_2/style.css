@@ -1,0 +1,134 @@
+/* Reset các thông số mặc định của trình duyệt */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- LAYOUT TỔNG THỂ DẠNG DASHBOARD --- */
+body {
+    display: flex;
+    height: 100vh;
+    /* Cao đúng 1 màn hình */
+    overflow: hidden;
+    /* Cấm cuộn toàn trang */
+    background-color: #f4f7f6;
+}
+
+/* --- THIẾT KẾ SIDEBAR (MENU DỌC) --- */
+.sidebar {
+    width: 280px;
+    /* Cố định chiều rộng menu */
+    background-color: #2c3e50;
+    /* Màu nền tối sang trọng */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 1px solid #34495e;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.menu-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Khoảng cách đều giữa các nút */
+    padding: 0 15px;
+    /* Lùi vào một chút cho đẹp */
+}
+
+/* --- THIẾT KẾ NÚT BẤM VÀ HIỆU ỨNG HOVER --- */
+.menu-item {
+    position: relative;
+    /* Mỏ neo cho lớp ::before */
+    z-index: 1;
+    /* Tạo Stacking Context chặn lớp ::before */
+    overflow: hidden;
+    border-radius: 8px;
+    /* Bo góc mềm mại */
+}
+
+.menu-item a {
+    display: block;
+    padding: 15px 20px;
+    color: #bdc3c7;
+    /* Màu chữ mặc định hơi xám */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    /* Chữ sáng lên khi hover */
+}
+
+/* Lớp màu nền ảo (chạy từ trái sang phải) */
+.menu-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    /* Ẩn đi khi chưa hover */
+    height: 100%;
+    background-color: #1abc9c;
+    /* Màu xanh ngọc bích */
+    z-index: -1;
+    /* Lùi lại phía sau chữ */
+    transition: width 0.3s ease;
+}
+
+/* Kéo giãn bề rộng khi hover */
+.menu-item:hover::before {
+    width: 100%;
+}
+
+/* Làm chữ trắng sáng lên khi hover */
+.menu-item:hover a {
+    color: #ffffff;
+}
+
+/* Giữ lại màu cho menu đang được chọn (Active) */
+.menu-item.active::before {
+    width: 100%;
+    background-color: #16a085;
+    /* Màu đậm hơn chút */
+}
+
+.menu-item.active a {
+    color: #ffffff;
+}
+
+/* --- PHẦN NỘI DUNG (CUỘN ĐỘC LẬP) --- */
+.content-node {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+    /* Tạo thanh cuộn ở đây */
+}
+
+.content-node h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.long-content {
+    height: 1500px;
+    /* Làm cho khối này dài ra để test cuộn chuột */
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+    border-radius: 12px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: #555;
+}

@@ -1,0 +1,95 @@
+/* --- RESET CƠ BẢN --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+/* --- THANH MENU CHÍNH (NẰM NGANG) --- */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links>li>a {
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    color: #333333;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links>li>a:hover {
+    color: #3b82f6;
+}
+
+/* --- LOGIC CỦA DROPDOWN MENU --- */
+
+/* 1. Mỏ neo: Thẻ cha phải là relative */
+.dropdown {
+    position: relative;
+}
+
+/* 2. Menu con: Nổi lên (absolute) và bị ẩn đi lúc ban đầu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    /* Nằm ngay sát mép dưới của thẻ cha */
+    left: 0;
+    width: 220px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    list-style: none;
+    padding: 10px 0;
+    z-index: 100;
+    /* Đảm bảo luôn nổi trên các nội dung khác */
+
+    /* Kỹ thuật ẩn menu chuẩn Pro (Không dùng display: none) */
+    opacity: 0;
+    visibility: hidden;
+
+    /* Đẩy menu tụt xuống 15px để lát nữa làm hiệu ứng trượt lên */
+    transform: translateY(15px);
+
+    /* Animation mượt mà bằng GPU */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 3. Hiện Dropdown khi hover vào thẻ cha (.dropdown) */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    /* Hiện màu */
+    visibility: visible;
+    /* Cho phép click */
+    transform: translateY(0);
+    /* Trượt lên vị trí gốc ban đầu */
+}
+
+/* --- STYLE CHO CÁC MỤC BÊN TRONG DROPDOWN --- */
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #555555;
+    font-size: 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f3f4f6;
+    color: #3b82f6;
+}

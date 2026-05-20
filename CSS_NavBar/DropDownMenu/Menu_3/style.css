@@ -1,0 +1,191 @@
+/* --- BẢNG MÀU VÀ RESET --- */
+:root {
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: rgba(226, 232, 240, 0.8);
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    /* Nền hơi trong suốt */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    height: 100vh;
+}
+
+/* --- THANH MENU CHÍNH --- */
+.modern-navbar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    background: #ffffff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    /* Menu bo tròn dạng viên thuốc (Pill) */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Thẻ a và button dùng chung 1 style */
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.nav-link:hover {
+    background: rgba(15, 23, 42, 0.05);
+}
+
+/* Biểu tượng mũi tên */
+.chevron {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Xoay mượt */
+}
+
+/* --- LOGIC DROPDOWN & HIỆU ỨNG --- */
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-panel {
+    position: absolute;
+    top: calc(100% + 15px);
+    /* Cách thẻ cha 15px */
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    /* Căn giữa và thu nhỏ nhẹ 5% */
+
+    width: 600px;
+    /* Mega menu thường rất rộng */
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    /* Hiệu ứng kính mờ (Glassmorphism) */
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* Đổ bóng đa tầng */
+
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: top center;
+    /* Tâm phóng to nằm ở cạnh trên */
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Easing "nảy" đặc trưng của Apple */
+    z-index: 100;
+}
+
+/* Khi hover: Bảng hiện ra, thu phóng về 1, mũi tên lộn ngược 180 độ */
+.dropdown-wrapper:hover .dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+    /* Phóng to về kích thước thật */
+}
+
+.dropdown-wrapper:hover .chevron {
+    transform: rotate(-180deg);
+}
+
+/* --- BỐ CỤC BÊN TRONG BẢNG (GRID) --- */
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Chia 2 cột đều nhau */
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Từng ô Card bên trong Dropdown */
+.dropdown-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.dropdown-card:hover {
+    background: #f8fafc;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.card-info h4 {
+    color: var(--text-main);
+    font-size: 15px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-info p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Nút Badge (Mới/Hot) */
+.badge {
+    background: #ef4444;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Chân bảng Dropdown */
+.dropdown-footer {
+    padding: 15px 20px;
+    background: #f8fafc;
+    border-top: 1px solid var(--border-color);
+    border-radius: 0 0 16px 16px;
+    text-align: right;
+}
+
+.dropdown-footer a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dropdown-footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,191 @@
+/* --- BẢNG MÀU CHUYÊN NGHIỆP (CSS VARIABLES) --- */
+:root {
+    --bg-app: #0f172a;
+    /* Màu nền tổng thể tối sâu */
+    --bg-sidebar: #1e293b;
+    /* Màu sidebar sáng hơn nền một chút */
+    --bg-hover: #334155;
+    /* Màu khi trỏ chuột vào menu */
+    --text-main: #f8fafc;
+    /* Trắng tinh */
+    --text-muted: #94a3b8;
+    /* Xám nhạt cho chữ phụ */
+    --accent-color: #3b82f6;
+    /* Màu xanh dương chủ đạo (Brand color) */
+    --accent-glow: rgba(59, 130, 246, 0.5);
+    /* Hiệu ứng tỏa sáng */
+    --danger: #ef4444;
+    /* Màu đỏ cho nút Logout */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+/* --- SIDEBAR CHUYÊN NGHIỆP --- */
+.pro-sidebar {
+    width: 260px;
+    background-color: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 10;
+}
+
+/* --- BRAND LOGO --- */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.brand-logo .highlight {
+    color: var(--accent-color);
+}
+
+/* --- DANH SÁCH MENU --- */
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+/* Kỹ thuật Flexbox đẩy menu dưới xuống đáy */
+.bottom-actions {
+    margin-top: auto;
+}
+
+/* --- ITEM & HIỆU ỨNG (PRO LEVEL) --- */
+.nav-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Thanh chỉ thị (Indicator Line) dùng Transform scaleY */
+.nav-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    /* Canh giữa và thu nhỏ về 0 */
+    width: 4px;
+    height: 60%;
+    background-color: var(--accent-color);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Hiệu ứng nảy (bounce) nhẹ */
+}
+
+/* Hover States */
+.nav-item:hover {
+    background-color: var(--bg-hover);
+}
+
+.nav-item:hover a {
+    color: var(--text-main);
+    transform: translateX(4px);
+    /* Chữ dịch nhẹ sang phải */
+}
+
+.nav-item:hover::before {
+    transform: translateY(-50%) scaleY(1);
+    /* Phóng to thanh chỉ thị */
+}
+
+/* Active State (Trang đang chọn) */
+.nav-item.active {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.nav-item.active a {
+    color: var(--accent-color);
+}
+
+.nav-item.active::before {
+    transform: translateY(-50%) scaleY(1);
+    height: 80%;
+    /* Dài hơn lúc hover một chút */
+}
+
+/* Nút Logout riêng biệt */
+.nav-item.logout:hover::before {
+    background-color: var(--danger);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.nav-item.logout:hover a {
+    color: var(--danger);
+}
+
+/* --- KHU VỰC NỘI DUNG (MÔ PHỎNG) --- */
+.main-content {
+    flex-grow: 1;
+    padding: 30px 40px;
+    overflow-y: auto;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.content-body {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 250px;
+    height: 150px;
+    background-color: var(--bg-sidebar);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
