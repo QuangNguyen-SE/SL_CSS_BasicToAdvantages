@@ -145,3 +145,67 @@ html, body{
     background-color: var(--hover-color);
     transform: translateY(-3px);
 }
+
+/* =========================================
+   THÊM CSS CHO MENU CẤP 2 (SUB-MENU)
+   ========================================= */
+
+.sub-product-list {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    /* Căn ngang hàng với item cha (Samsung) */
+    left: 100%;
+    /* Đẩy menu phụ sang sát mí bên phải của menu chính */
+    padding: 0;
+    min-width: 150px;
+    z-index: 20;
+    /* Z-index lớn hơn menu cấp 1 để đè lên trên nếu cần */
+    list-style-type: none;
+    box-shadow: 8px 8px 8px 0px #000000;
+    background-color: #e8e1e1;
+
+    /* Hiệu ứng trượt từ phải sang trái thay vì từ trên xuống */
+    transform: translateX(15px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hiển thị sub-menu khi hover vào thẻ cha chứa nó */
+.product-item.sub-dropdown:hover .sub-product-list {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Tái sử dụng lại hiệu ứng hover ::before cho các item trong menu phụ */
+.sub-product-item {
+    position: relative;
+    padding: 10px;
+    font-size: large;
+    height: 100%;
+    z-index: 1;
+}
+
+.sub-product-item a {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    /* Giúp vùng click của thẻ <a> rộng ra toàn ô */
+}
+
+.sub-product-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+
+.sub-product-item:hover::before {
+    width: 100%;
+}
