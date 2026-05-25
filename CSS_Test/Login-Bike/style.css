@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    overflow: hidden;
+    background-color: #111;
+}
+
+/* --- HIỆU ỨNG TRƯỢT NỀN --- */
+.bg-animated {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    /* Sử dụng hình ảnh xe máy chất lượng cao */
+    background: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    filter: brightness(0.35);
+    animation: panBackground 20s linear infinite alternate;
+    z-index: -1;
+}
+
+@keyframes panBackground {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-2%, -2%) scale(1.05);
+    }
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* --- HIỆU ỨNG KÍNH MỜ (GLASSMORPHISM) --- */
+.glass-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 50px 40px;
+    width: 380px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dải đèn pha lướt ngang đầu form */
+.glass-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #ff4500, transparent);
+    animation: headlightSweep 3s linear infinite;
+}
+
+@keyframes headlightSweep {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.glass-form h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 35px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+}
+
+/* --- HIỆU ỨNG NHÃN NỔI (FLOATING LABELS) --- */
+.input-box {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -20px;
+    font-size: 13px;
+    color: #ff4500;
+    font-weight: 600;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-bottom: 2px solid #ff4500;
+}
+
+/* --- NÚT BẤM HIỆU ỨNG "LÊN GA" --- */
+.rev-btn {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 2px solid #ff4500;
+    color: #ff4500;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Phát sáng và rung nhẹ khi di chuột vào (mô phỏng động cơ gầm) */
+.rev-btn:hover {
+    background: #ff4500;
+    color: #111;
+    box-shadow: 0 0 15px #ff4500, 0 0 30px #ff4500;
+    animation: engineVibrate 0.1s infinite;
+}
+
+@keyframes engineVibrate {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-1px, -1px) rotate(-1deg);
+    }
+
+    50% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    75% {
+        transform: translate(-1px, 1px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+}

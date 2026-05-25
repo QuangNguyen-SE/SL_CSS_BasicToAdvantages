@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng UI Chuyền Động</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .machine-container {
+            position: relative;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            height: 400px;
+        }
+
+        /* --- PHẦN BÁNH RĂNG & INPUT --- */
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .input-group input {
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #333;
+        }
+
+        .gear {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.1s ease-out;
+            /* Tạo độ mượt khi quay */
+        }
+
+        /* Dây curoa giả lập */
+        .belt {
+            position: absolute;
+            top: 60px;
+            left: 230px;
+            width: 2px;
+            height: 100px;
+            background: #333;
+        }
+
+        /* --- PHẦN ĐÒN BẨY & CHECKBOX --- */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .lever-system {
+            position: relative;
+            width: 150px;
+            height: 50px;
+            margin-left: 50px;
+        }
+
+        /* Trục xoay của đòn bẩy */
+        .pivot {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #e74c3c;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        /* Thanh đòn bẩy */
+        .lever {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #2c3e50;
+            transform-origin: center;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            /* Hiệu ứng nảy */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="machine-container">
+
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Nhập tên để quay bánh răng...">
+            <svg class="gear" id="gear-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#7f8c8d"
+                    d="M50 10c-3 0-5 2-6 5l-2 8c-2 1-5 2-7 3l-6-6c-2-2-5-2-7 0l-7 7c-2 2-2 5 0 7l6 6c-1 2-2 5-3 7l-8 2c-3 1-5 3-5 6v10c0 3 2 5 5 6l8 2c1 2 2 5 3 7l-6 6c-2 2-2 5 0 7l7 7c2 2 5 2 7 0l6-6c2 1 5 2 7 3l2 8c1 3 3 5 6 5h10c3 0 5-2 6-5l2-8c2-1 5-2 7-3l6 6c2 2 5 2 7 0l7-7c2-2 2-5 0-7l-6-6c1-2 2-5 3-7l8-2c3-1 5-3 5-6v-10c0-3-2-5-5-6l-8-2c-1-2-2-5-3-7l6-6c2-2 2-5 0-7l-7-7c-2-2-5-2-7 0l-6 6c-2-1-5-2-7-3l-2-8c-1-3-3-5-6-5H50zm0 25a15 15 0 1 1 0 30 15 15 0 0 1 0-30z" />
+            </svg>
+        </div>
+        <div class="belt"></div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="agree-check">
+            <label for="agree-check">Đồng ý điều khoản</label>
+
+            <div class="lever-system">
+                <div class="lever" id="lever-bar"></div>
+                <div class="pivot"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- LOGIC QUAY BÁNH RĂNG KHI NHẬP CHỮ ---
+        const usernameInput = document.getElementById('username');
+        const gear = document.getElementById('gear-svg');
+        let currentRotation = 0;
+
+        usernameInput.addEventListener('input', (e) => {
+            // Mỗi ký tự nhập vào sẽ quay bánh răng thêm 15 độ
+            // Nếu xóa chữ đi, độ dài giảm, bánh răng sẽ quay ngược lại
+            const textLength = e.target.value.length;
+            currentRotation = textLength * 25;
+            gear.style.transform = `rotate(${currentRotation}deg)`;
+        });
+
+        // --- LOGIC GẠT ĐÒN BẨY KHI CHECKBOX ---
+        const checkbox = document.getElementById('agree-check');
+        const lever = document.getElementById('lever-bar');
+
+        checkbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                // Nghiêng thanh đòn bẩy đi 20 độ khi check
+                lever.style.transform = 'rotate(20deg)';
+            } else {
+                // Trả về vị trí cân bằng khi uncheck
+                lever.style.transform = 'rotate(0deg)';
+            }
+        });
+    </script>
+</body>
+
+</html>
