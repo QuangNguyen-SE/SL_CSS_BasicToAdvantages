@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rồng/Rắn Nối Đuôi</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #111;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        .instruction {
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+            font-family: sans-serif;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Khung cơ bản cho từng đốt thân */
+        .segment {
+            position: absolute;
+            border: 3px solid #FFD700;
+            /* Viền màu vàng gold */
+            background-color: #FF5722;
+            /* Lõi màu cam đỏ */
+            border-radius: 50%;
+            /* Bo tròn thành hình cầu */
+            pointer-events: none;
+            /* Không cản trở click chuột */
+            top: 0;
+            left: 0;
+            transform-origin: center center;
+            box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+            /* Hiệu ứng phát sáng nhẹ */
+        }
+
+        /* Trang trí thêm 2 mắt cho đốt đầu tiên (đầu rồng) */
+        .head::before,
+        .head::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            top: 20%;
+        }
+
+        .head::before {
+            left: 15%;
+        }
+
+        .head::after {
+            right: 15%;
+        }
+
+        /* Tròng đen của mắt */
+        .head {
+            border: 3px solid #FFF !important;
+            /* Đầu viền trắng cho nổi */
+            background-color: #D84315 !important;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="instruction">Hãy di chuyển chuột để xem rồng uốn lượn nhé!</div>
+
+    <script>
+        const numSegments = 35; // Số lượng đốt thân của rồng
+        const segments = []; // Mảng chứa các phần tử HTML
+        const positions = []; // Mảng chứa tọa độ (x, y) của từng đốt
+        const segmentDistance = 12; // Khoảng cách giữa các đốt (pixels)
+
+        // Tọa độ chuột
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        // 1. TẠO CÁC ĐỐT THÂN (HTML)
+        for (let i = 0; i < numSegments; i++) {
+            const el = document.createElement('div');
+            el.classList.add('segment');
+
+            // Nếu là đốt đầu tiên, thêm class head để có mắt
+            if (i === 0) el.classList.add('head');
+
+            // Tính toán kích thước nhỏ dần về phía đuôi
+            // Đầu to nhất là 40px, đuôi nhỏ nhất là 10px
+            const size = Math.max(10, 40 - (i * 0.9));
+            el.style.width = `${size}px`;
+            el.style.height = `${size}px`;
+
+            // Đặt z-index giảm dần để đầu đè lên thân, thân đè lên đuôi
+            el.style.zIndex = numSegments - i;
+
+            document.body.appendChild(el);
+
+            // Lưu trữ element và khởi tạo tọa độ ban đầu
+            segments.push({ element: el, size: size });
+            positions.push({ x: mouseX, y: mouseY });
+        }
+
+        // 2. BẮT SỰ KIỆN CHUỘT
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // 3. VÒNG LẶP HOẠT ẢNH
+        function animate() {
+            // Phần ĐẦU RỒNG (Index 0) bay theo chuột một cách mượt mà (Lerp)
+            positions[0].x += (mouseX - positions[0].x) * 0.2;
+            positions[0].y += (mouseY - positions[0].y) * 0.2;
+
+            // Xoay đầu rồng hướng về phía chuột
+            const dxHead = mouseX - positions[0].x;
+            const dyHead = mouseY - positions[0].y;
+            const headAngle = Math.atan2(dyHead, dxHead) * (180 / Math.PI);
+
+            // Cập nhật vị trí trên màn hình cho ĐẦU
+            segments[0].element.style.transform = `translate(${positions[0].x - segments[0].size / 2}px, ${positions[0].y - segments[0].size / 2}px) rotate(${headAngle - 90}deg)`;
+
+            // Phần THÂN (Index 1 trở đi) bám theo đốt ngay trước nó
+            for (let i = 1; i < numSegments; i++) {
+                // Tính toán khoảng cách và góc giữa đốt hiện tại (i) và đốt phía trước (i-1)
+                const dx = positions[i - 1].x - positions[i].x;
+                const dy = positions[i - 1].y - positions[i].y;
+                const angle = Math.atan2(dy, dx);
+
+                // Tính toán tọa độ mục tiêu: Nằm cách đốt trước 1 khoảng bằng segmentDistance
+                const targetX = positions[i - 1].x - Math.cos(angle) * segmentDistance;
+                const targetY = positions[i - 1].y - Math.sin(angle) * segmentDistance;
+
+                // Di chuyển đốt hiện tại về phía tọa độ mục tiêu
+                // Nhân 0.5 để tạo độ trễ, giúp chuyển động uốn lượn có cảm giác mềm mại giống cao su/cơ bắp
+                positions[i].x += (targetX - positions[i].x) * 0.5;
+                positions[i].y += (targetY - positions[i].y) * 0.5;
+
+                // Cập nhật vị trí trên màn hình cho THÂN
+                segments[i].element.style.transform = `translate(${positions[i].x - segments[i].size / 2}px, ${positions[i].y - segments[i].size / 2}px)`;
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Khởi động
+        animate();
+    </script>
+</body>
+
+</html>

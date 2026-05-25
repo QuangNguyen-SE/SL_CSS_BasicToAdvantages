@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rồng Bay Theo Chuột</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #1a1a1a;
+            /* Nền tối để rồng nổi bật hơn */
+            overflow: hidden;
+            /* Ẩn thanh cuộn */
+            cursor: crosshair;
+            /* Đổi kiểu con trỏ chuột */
+            font-family: sans-serif;
+        }
+
+        #dragon {
+            position: fixed;
+            font-size: 60px;
+            /* Kích thước của chú rồng */
+            /* Vô hiệu hóa tương tác chuột để rồng không cản trở khi bạn click vào các nút/link khác */
+            pointer-events: none;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+            /* Tạo hiệu ứng phát sáng nhẹ như có lửa */
+            filter: drop-shadow(0 0 15px rgba(255, 100, 0, 0.6));
+        }
+
+        .instruction {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="instruction">Hãy di chuyển chuột trên màn hình nhé!</div>
+
+    <!-- Có thể thay thế biểu tượng 🐉 bằng thẻ <img> chứa ảnh thật nếu bạn muốn -->
+    <div id="dragon">🐉</div>
+
+    <script>
+        const dragon = document.getElementById('dragon');
+
+        // Khởi tạo tọa độ chuột ở giữa màn hình
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        // Khởi tạo tọa độ hiện tại của rồng
+        let dragonX = window.innerWidth / 2;
+        let dragonY = window.innerHeight / 2;
+
+        // Bắt sự kiện khi chuột di chuyển
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Hàm tạo hiệu ứng chuyển động
+        function animate() {
+            // LERP (Linear Interpolation) tạo độ mượt. 
+            // Số 0.04 là tốc độ bay (nhỏ = trễ nhiều/bay chậm, lớn = bám sát/bay nhanh)
+            dragonX += (mouseX - dragonX) * 0.04;
+            dragonY += (mouseY - dragonY) * 0.04;
+
+            // Tính khoảng cách để xác định hướng bay
+            const dx = mouseX - dragonX;
+            const dy = mouseY - dragonY;
+
+            // Xử lý hướng quay đầu
+            // Biểu tượng 🐉 mặc định quay sang trái. 
+            // Nếu chuột ở bên phải (dx > 0), ta lật ngược nó lại (scaleX = -1)
+            let scaleX = dx > 0 ? -1 : 1;
+
+            // Tạo hiệu ứng nghiêng mình khi bay lên/xuống
+            // Phải điều chỉnh lại góc nghiêng nếu rồng đang bị lật ngang
+            const tilt = dy * 0.1 * (scaleX === -1 ? -1 : 1);
+
+            // Cập nhật vị trí và góc xoay
+            // Trừ đi 30px (bằng 1/2 kích thước) để mũi chuột nằm ở ngay giữa thân rồng
+            dragon.style.transform = `translate(${dragonX - 30}px, ${dragonY - 30}px) scaleX(${scaleX}) rotate(${tilt}deg)`;
+
+            // Lặp lại hàm animate liên tục theo tần số quét của màn hình (thường là 60fps)
+            requestAnimationFrame(animate);
+        }
+
+        // Kích hoạt hiệu ứng
+        animate();
+    </script>
+</body>
+
+</html>
