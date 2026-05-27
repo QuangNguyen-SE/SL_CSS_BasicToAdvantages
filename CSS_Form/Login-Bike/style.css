@@ -19,20 +19,27 @@ html {
     left: -10%;
     width: 120%;
     height: 120%;
-    /* Sử dụng hình ảnh xe máy chất lượng cao */
-    background: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    z-index: 0;
     filter: brightness(0.35);
+
+    /* 1. Tách rõ ràng các thuộc tính background để trình duyệt không bị nhầm lẫn */
+    background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* 2. Đảm bảo animation gọi đúng tên và có thời gian đủ nhanh */
     animation: panBackground 20s linear infinite alternate;
-    z-index: -1;
 }
 
 @keyframes panBackground {
     0% {
-        transform: translate(0, 0) scale(1);
+        /* 3. THÊM DẤU % VÀO SỐ 0: Đây thường là thủ phạm khiến animation bị lỗi nội suy */
+        transform: translate(0%, 0%) scale(1);
     }
 
     100% {
-        transform: translate(-2%, -2%) scale(1.05);
+        transform: translate(-5%, -5%) scale(1.15);
     }
 }
 
