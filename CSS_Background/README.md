@@ -14,7 +14,7 @@
     - **Từ khóa**: `none`(không có ảnh nền - giá trị mặc định).
 
 ## 3. background-position
-- Xác định vị trí bắt đầu hiển thị của ảnh nền (tọa độ x và y).
+- Xác định vị trí bắt đầu hiển thị của ảnh nền (tọa độ x và y). Nhưng nó phụ thuộc hoàn toàn vào `background-origin`.
     - **Từ khóa**: `left`, `right`, `top`, `bottom`, `center`.
     - **Phần trăm(%)**: `0%` `0%` (góc trên bên trái), `50%` `50%` (giữa), `100%` `100%` (góc dưới bên phải).
     - **Đơn vị đo**: `10px 20px`, `2rem 5rem`.

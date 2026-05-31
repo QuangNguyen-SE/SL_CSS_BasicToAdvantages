@@ -23,18 +23,19 @@ html {
     filter: brightness(0.35);
 
     /* 1. Tách rõ ràng các thuộc tính background để trình duyệt không bị nhầm lẫn */
-    background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-image:linear-gradient(45deg, #ff4500, #8a2be2),
+                    url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
     /* 2. Đảm bảo animation gọi đúng tên và có thời gian đủ nhanh */
     animation: panBackground 20s linear infinite alternate;
+    background-blend-mode: multiply;
 }
 
 @keyframes panBackground {
     0% {
-        /* 3. THÊM DẤU % VÀO SỐ 0: Đây thường là thủ phạm khiến animation bị lỗi nội suy */
         transform: translate(0%, 0%) scale(1);
     }
 

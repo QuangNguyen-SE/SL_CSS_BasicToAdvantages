@@ -1,0 +1,135 @@
+:root{
+    --bg-box-color: #ffffffce;
+    --primary-color: #0984e3;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-color: #ffffff;
+}
+
+html, body{
+    margin: 0;
+}
+body{
+    min-height: 100vh;
+    height: 100%;
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgba(50, 50, 50), rgba(100, 100, 100), rgb(255, 255, 255));
+    background-size: 200% 200%;
+    animation: colorSlide 10s ease infinite;
+}
+    
+@keyframes colorSlide {
+    0% {
+        background-position: 0% 50%;
+    }
+    
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    border: 1px solid var(--glass-border);
+    background-color: var(--glass-bg);
+    width: 300px;
+    height: 300px;
+    background-blend-mode: difference;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding:40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    place-content: center;
+}
+.container h2{
+    text-align: center;
+    color: var(--text-color)
+}
+.input-group {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.input-group::before, .input-group::after{
+    content: "";
+    position: absolute;
+    background-image: conic-gradient(from var(--angle),transparent 50%,rgb(255, 255, 0));
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    animation: glowLine 5s linear infinite;
+    border-radius: 20px;
+}
+@keyframes glowLine {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+.input-group::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+.container input[type="text"]{
+    background-color: black;
+    padding: 10px;
+    margin: 0;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--text-color);
+    border-radius: 20px;
+}
+
+.container input[type="text"]:focus{
+    outline:none;
+    color: rgb(255, 255, 255);
+}
+
+.container input[type="text"]+label{
+    position: absolute;
+    top: 10px;
+    left: 6px;
+    z-index: 1;
+    pointer-events: none; 
+    /* skip qua event click chuột của user */
+    transition: all 0.5s ease;
+}
+.container input[type="text"]:focus+label, .container input[type="text"]:not(:placeholder-shown)+label{
+    top: -10px;
+    left: 10px
+}
+.container input[type="text"]:not(:placeholder-shown)+label{
+    color: green;
+    font-weight: bold;
+}
+.radio-group {
+
+}
+
+.radio-option {}
