@@ -1,0 +1,24 @@
+.counter-list{
+    counter-reset: count 6; 
+    
+    /* Biến đếm bắt đầu từ 6-1 */
+}
+
+h2{
+    counter-reset: sub-count 0;
+    /* Biến đếm bắt đầu từ 0+1 */
+}
+
+h2{
+    counter-increment: count -1;
+}
+h2::before{
+    content: "Content "counter(count) " "; 
+}
+
+p{
+    counter-increment: sub-count 1;
+}
+p::before{
+    content: "Content " counter(count)"."counter(sub-count) " ";
+}
