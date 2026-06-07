@@ -1,0 +1,51 @@
+:root{
+    --bg-color-webpage: rgba(200, 200, 200, 0.3);
+    --header-color-bar: rgba(255,255,255);
+}
+html{
+    height: 100vh;
+    margin:0;
+    padding:0;
+}
+body{
+    padding:0;
+    margin: 0;
+    background-color: var(--bg-color-webpage);
+}
+.header{
+    margin: 0;
+    background-color: var(--header-color-bar);
+    text-align: center;
+    height: 5rem;
+    font-size: 2rem;
+    place-items: center;
+    place-content: center;
+    font-weight: bold;
+    animation: textColor 10s infinite;
+}
+
+@keyframes textColor{
+    0% {
+        color: black;
+    }
+
+    25% {
+        color: red;
+    }
+
+    50% {
+        color: green;
+    }
+
+    75% {
+        color: blue;
+    }
+
+    100% {
+        color: black;
+    }
+}
+
+.navbar{
+    
+}

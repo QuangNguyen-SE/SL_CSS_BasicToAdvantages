@@ -1,0 +1,67 @@
+html{
+    height: 100vh;
+}
+body{
+    height: 100%;
+}
+.hamburger-btn {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+}
+
+/* --- Khung Sidebar --- */
+.sidebar {
+    height: 100vh;
+    /* Cao bằng toàn bộ màn hình */
+    width: 250px;
+    /* Độ rộng của menu */
+    position: fixed;
+    /* Cố định nó ở một góc */
+    z-index: 1000;
+    /* Đảm bảo nó luôn nằm trên cùng, không bị che khuất */
+    top: 0;
+    left: 0;
+    background-color: #2c3e50;
+    /* Màu nền của menu (xanh đen) */
+    overflow-x: hidden;
+    padding-top: 60px;
+
+    /* CỐT LÕI: Đẩy menu sang bên trái 100% để giấu nó đi */
+    transform: translateX(-100%);
+
+    /* Tạo hiệu ứng trượt mượt mà trong 0.3 giây */
+    transition: transform 0.3s ease;
+}
+
+/* Class này dùng để "kéo" menu ra (Sẽ được JS thêm vào) */
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* --- Định dạng các chữ trong Menu --- */
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ecf0f1;
+    display: block;
+    transition: 0.2s;
+}
+
+/* Đổi màu khi di chuột vào link */
+.sidebar a:hover {
+    background-color: #34495e;
+    color: #fff;
+}
+
+/* --- Nút đóng (Dấu X) --- */
+.sidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    padding: 0;
+}
