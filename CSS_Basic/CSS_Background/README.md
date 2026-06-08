@@ -49,6 +49,7 @@
 
 ## 8. background-origin (Điểm gốc của ảnh nền)
 - Xác định tọa độ 0, 0 của background-position sẽ bắt đầu từ đâu.
+- Nếu như background-attachment: fixed thì background-origin sẽ không hoạt động.
     - `padding-box`: Bắt đầu từ góc của vùng padding (mặc định).
     - `border-box`: Bắt đầu từ góc của vùng border.
     - `content-box`: Bắt đầu từ góc của vùng nội dung.

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            background-color: green;
+            color: white;
+            place-items: center;
+            place-content: center;
+            text-align: center;
+        }
+
+        .non-radius {
+            border-radius: 0;
+        }
+
+        .rounder-radius {
+            border-radius: 20px;
+        }
+
+        .smooth-rounder-radius {
+            width: 300px;
+            border-radius: 9999px;
+        }
+
+        .circle {
+            width: 200px;
+            border-radius: 50%;
+        }
+        .custom-1 {
+            border-top-left-radius: 20%;
+            border-bottom-right-radius: 20%;
+        }
+
+        .custom-2 {
+            border-top-right-radius: 20%;
+            border-bottom-left-radius: 20%;
+        }
+
+        .custom-3 {
+            border-top-left-radius: 20%;
+            border-top-right-radius: 20%;
+        }
+
+        .custom-4 {
+            border-bottom-left-radius: 80%;
+            border-bottom-right-radius: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Border non-radius</p>
+    <div class="box non-radius">
+        Non-border
+    </div>
+    <p>Rounder-radius</p>
+    <div class="box rounder-radius">
+        Rounder-radius
+    </div>
+    <p>Smooth-Rounder-radius</p>
+    <div class="box smooth-rounder-radius">
+        Rounder-radius
+    </div>
+    <p>Circle</p>
+    <div class="box circle">
+        Circle radius
+    </div>
+
+    <p>Rouder-custom</p>
+    <div class="box custom-1">
+        custom-1
+    </div>
+    <p>Rouder-custom</p>
+    <div class="box custom-2">
+        custom-2
+    </div>
+    <p>Rouder-custom</p>
+    <div class="box custom-3">
+        custom-3
+    </div>
+    <p>Rouder-custom</p>
+    <div class="box custom-4">
+        custom-4
+    </div>
+</body>
+
+</html>
