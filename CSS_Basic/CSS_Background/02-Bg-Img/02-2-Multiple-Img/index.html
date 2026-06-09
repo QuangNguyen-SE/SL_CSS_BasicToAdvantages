@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple-Img</title>
+    <style>
+        html {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .muti-bg {
+            padding: 40px;
+            border: 20px solid black;
+            background-image: url(img_flwr.gif), url(paper.gif);
+            background-position: right bottom, left top;
+            background-repeat: no-repeat, repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="muti-bg">
+        <p>2 bức ảnh chồng lên nhau</p>
+        <p>Thuộc tính background-image cho phép ta khai báo nhiều image cùng 1 lúc như 1 mảng chứa các file ảnh ngăn cách nhau bằng dấu phẩy</p>
+        <p>Nhưng lưu ý, thằng nằm ở vị trí index 0 thì thằng đó nằm trên cùng, nếu đổi paper.gif lên trc flower thì paper sẽ che mất hình flower</p>
+    </div>
+    <hr>
+</body>
+
+</html>

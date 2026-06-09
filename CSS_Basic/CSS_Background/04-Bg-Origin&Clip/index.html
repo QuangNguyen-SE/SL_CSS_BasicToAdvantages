@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gradient-border-simple {
+            width: 300px;
+            height: 150px;
+            background-color: white;
+            /* Màu nền của nội dung */
+
+            /* Phần quan trọng */
+            border: 10px solid;
+            /* Cần định nghĩa độ dày và style (solid) */
+            border-image-source: linear-gradient(to right, #4facfe, #00f2fe);
+            /* Dải màu */
+            border-image-slice: 1;
+            /* Bắt buộc để dải màu lấp đầy toàn bộ viền */
+        }
+
+        @property --angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .gradient-border-rounded {
+            width: 300px;
+            height: 300px;
+            color: white;
+            place-items: center;
+            place-content: center;
+            text-align: center;
+            border-radius: 20px;
+            /* Bo góc thoải mái */
+
+            /* Phần quan trọng: Đường viền trong suốt làm "khung" */
+            border: 5px solid transparent;
+
+            /* Xếp 2 lớp background-image và dùng background-clip */
+            background:
+                /* layOut 1 */
+                linear-gradient(black, black) padding-box,
+                /* LayOut 2 */
+                conic-gradient(from var(--angle), transparent 70%, #ff0000) border-box;
+            animation: lineRun 5s linear infinite;
+        }
+        @keyframes lineRun {
+            from{
+                --angle: 0deg;
+            }to{
+                --angle: 360deg;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="gradient-border-rounded">
+        How can we do this?
+    </div>
+</body>
+
+</html>
