@@ -1,0 +1,74 @@
+html{
+    height: 100vh;
+    background-color: azure;
+}
+@property --angle-1{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.line-animation{
+    height: 300px;
+    width: 200px;
+    place-items: center;
+    place-content: center;
+    /* Bắt buộc phải tạo độ dày cho border thì phần viền của background-origin: border mới lộ diện và dùng màu transparent */
+    border: 5px solid transparent;
+    /*  */
+    border-radius: 20%;
+    background: 
+    linear-gradient(rgb(255,255,255),rgb(255,255,255)) content-box, 
+    linear-gradient(var(--angle-1),rgb(255,0,0)0 50%, rgb(0,0,255)50% 100%) border-box;
+    animation: lineGlow 3s linear infinite;
+}
+@keyframes lineGlow {
+    from{
+        --angle-1: 0deg;
+    }to{
+        --angle-1: 360deg;
+    }
+}
+@property --trans-1 {
+    syntax: "<percentage>";
+    initial-value: -10%;
+    inherits: false;
+}
+
+.glass-animation{
+    display: grid;
+        /* Để place-items hoạt động */
+        height: 300px;
+        width: 200px;
+        place-items: center;
+        place-content: center;
+    
+        /* Tách làm 2 lớp nền */
+        background:
+            /* Lớp 1 (Trên): Vệt sáng trắng lướt qua */
+            linear-gradient(135deg,
+                transparent calc(var(--trans-1) - 15%),
+                rgba(255, 255, 255, 0.5) var(--trans-1),
+                /* Tâm của vệt sáng trắng */
+                transparent calc(var(--trans-1) + 15%)),
+            /* Lớp 2 (Dưới): Nền kính tối màu */
+            rgba(0, 0, 0, 0.2);
+    
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    
+        /* Viền kính mờ để tạo độ nổi */
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        /* Bóng đổ đậm hơn cho kính tối */
+    
+        /* Chạy hiệu ứng mượt mà */
+        animation: lightGlow 5s ease-in-out infinite alternate;
+}
+@keyframes lightGlow {
+    from{
+        --trans-1:-10%;
+    }to{
+        --trans-1:120%;
+    }
+}

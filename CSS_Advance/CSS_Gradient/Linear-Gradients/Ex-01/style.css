@@ -1,0 +1,79 @@
+html{
+    height: 100vh;
+}
+.text{
+    place-items: center;
+    place-content: center;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+}
+
+.demo-1{
+    --position-de01: right;
+    background-image: linear-gradient(to var(--position-de01),rgb(255,0,0), rgb(0,255,0), rgb(0,0,255));
+    animation: de01 5s linear infinite;
+}
+@keyframes de01 {
+    0%{
+        --position-de01: right;
+    }
+    25%{
+        --position-de01: bottom;
+    }
+    50%{
+        --position-de01: left;
+    }
+    75%{
+        --position-de01: top;
+    }
+    100%{
+        --position-de01: right;
+    }
+}
+@property --angle-02 {
+    syntax: "<angle>";
+    /* Định nghĩa đây là giá trị góc */
+    initial-value: 0deg;
+    /* Giá trị mặc định ban đầu */
+    inherits: false;
+    /* Không kế thừa từ phần tử cha */
+}
+.demo-2{
+    background: linear-gradient(var(--angle-02), rgb(255, 0, 0),rgb(0, 255, 0),rgb(0, 0, 255));
+    animation: ang-2 5s linear infinite;
+}
+@keyframes ang-2 {
+    from{
+        --angle-02: 0deg;
+    }to{
+        --angle-02: 360deg;
+    }
+}
+
+@property --trans-3 {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+.demo-3{
+    background: linear-gradient(225deg, rgb(255, 0, 0), transparent var(--trans-3) ,rgb(255, 0, 0));
+    animation: tran-3 5s linear infinite alternate;
+}
+@keyframes tran-3 {
+    from{
+        --trans-3:0%;
+    }to{
+        --trans-3:100%;
+    }
+}
+
+.demo-4{
+    background: linear-gradient(to right, red 17%, orange 17% 40%, yellow 40% 50%, green 50% 60%);
+}
+
+.demo-5{
+    height: 200px;
+    width: 200px;
+    background: repeating-linear-gradient(to left, red 0% 10%, blue 10% 15%, green 15% 20%);
+}
