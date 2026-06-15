@@ -37,6 +37,10 @@
             background-color: var(--bg-color-4);
             color:#000000;
         }
+
+        .parent-2:has(.child-1:hover){
+            background-color: #00ff00;
+        }
     </style>
 </head>
 <body>
@@ -51,6 +55,11 @@
         <p class="child-8">Child-8 (:where, :not)</p>
         <p class="child-9">Child-9 (:where, :not)</p>
         <p class="child-10">Child-10</p>
+    </div>
+    <hr>
+    <div class="parent-2">
+        <p class="child-1">Child-2.1</p>
+        <p class="child-2">Child-2.2</p>
     </div>
 </body>
 </html>

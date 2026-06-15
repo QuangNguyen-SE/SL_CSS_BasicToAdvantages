@@ -9,9 +9,8 @@
     </ol>
 
 ### :is()
-
-- Chỉ chạy khi các thẻ nằm trong điều kiện, giúp code gọn hơn
-- Các thẻ nằm trong ngoặc mới đc áp dụng css
+- Chỉ chạy khi các thẻ nằm trong ngoặc, giúp code gọn hơn
+- Các thẻ nằm trong ngoặc mới đc áp dụng css. **Không áp dụng cho chính thẻ cha!**
 - Nó gom nhóm các thẻ con muốn áp dụng css lên, thay vì viết 1 cách rời rạc
   - Cách dùng:
   ```css
@@ -53,7 +52,7 @@
 ### :has()
 
 - Cách thức giống như 1 điều kiện if...else
-- Nó chỉ chạy khi thẻ cha có chứa thẻ con đó mà thôi
+- Nó sẽ áp dụng **stlye lên thẻ gọi tới nó** nếu thỏa điều kiện bên trong ngoặc
 - Cách dùng:
 
 ```css
@@ -62,4 +61,5 @@
     }
 ```
 
-- Ý nghĩa: Nếu thẻ div có thẻ img bên trong nó sẽ thực hiện css lên thẻ img
+>Ý nghĩa: Nếu thẻ div có thẻ img bên trong nó sẽ thực hiện css lên **thẻ div**
+- Đây là điểm khác biệt với `:is`

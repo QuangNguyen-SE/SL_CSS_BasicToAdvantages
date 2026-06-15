@@ -1,0 +1,38 @@
+html{
+    height: 100vh;
+}
+:root{
+    --color-red: rgba(255,0,0,1);
+    --color-green: rgba(0,255,0,1);
+    --color-blue: rgba(0,0,255,1);
+    --color-white: rgba(255,255,255,1);
+    --color-black: rgba(0,0,0,1);
+    --color-yellow: rgba(255,255,0, 0.5);
+    --color-night: rgba(33, 4, 66, 0.849);
+}
+
+.box{
+    height: 300px;
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.box-1{
+    background-image: conic-gradient(from 0deg,var(--color-red), var(--color-blue), var(--color-green));
+}
+
+@property --turnOn{
+    syntax: "<color>";
+    initial-value: rgba(33, 4, 66, 0.849);
+    inherits: false;
+}
+
+.box-2{
+    place-content: center;
+    border: 1px solid var(--color-black);
+    background-image: conic-gradient(from 270deg at 5%, var(--color-night) 1% 30%, var(--turnOn), var(--color-night) 70% 100%);
+    transition: --turnOn 0.5s ease-in-out;
+}
+.box-2:has(.flashlight:hover){
+    --turnOn: var(--color-yellow);
+}
