@@ -1,0 +1,24 @@
+html{
+    height: 100vh;
+}
+:root{
+    --color-red: rgb(255,0,0);
+    --color-blue: rgb(0,0,255);
+    --color-green: rgb(0,255,0);
+}
+.text{
+    height: 200px;
+    width: 300px;
+    place-items: center;
+    place-content: center;
+}
+.box-1{
+    background: radial-gradient(circle farthest-side at 0% 0%, var(--color-red), var(--color-green), var(--color-blue));
+}
+.box-2{
+    background: radial-gradient(ellipse, var(--color-red), var(--color-green), var(--color-blue));
+}
+.box-3{
+    border: 5px solid transparent;
+    background: radial-gradient(circle farthest-side at bottom, var(--color-red), var(--color-green), var(--color-blue), rgb(255,255,255), rgb(0,0,0));
+}

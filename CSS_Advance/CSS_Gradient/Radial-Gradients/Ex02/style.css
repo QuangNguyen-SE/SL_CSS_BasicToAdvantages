@@ -1,0 +1,102 @@
+html{
+    height: 100vh;
+}
+@property --radius {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+.box{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+.box-1{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    background: radial-gradient(circle farthest-corner at center,
+            #41ff5a 0%,
+            #1a1a2e var(--radius),
+            #ff416c calc(var(--radius) + 5%),
+            #1a1a2e var(--radius),
+            rgb(255,255,255) calc(var(--radius) + 10%),
+            /* Vòng tròn màu hồng lan rộng dần */
+            #1a1a2e var(--radius),
+            rgb(255,0,0) calc(var(--radius) + 15%),
+            #1a1a2e var(--radius)
+            /* Màu nền tối bị đẩy lùi về các góc */
+        );
+
+    /* 3. Gọi animation: Chạy trong 2s, lặp lại vô hạn, và có hiệu ứng dội ngược (alternate) */
+    animation: expand-to-corners 2s ease infinite alternate;
+}
+
+@keyframes expand-to-corners {
+    0% {
+        --radius: 0%;
+    }
+
+    100% {
+        --radius: 100%;
+    }
+}
+
+@property --x{
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+@property --y{
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+/* Vì sao lại cần khai báo biến property ở đây?
+- Nếu không có sự khai báo này Brownser sẽ không hiểu biến --x và biến --y thực chất là gì
+- Và khi animation chạy đến 1 khoảng thời gian thì nó lại bị giựt như kiểu trình duyệt sẽ tự động thay đổi giá trị đột ngột 
+gây ra hiện tượng giựt giựt (discrete animation)
+
+*/
+.box-2{
+    background: radial-gradient(circle farthest-corner at var(--x) var(--y),
+                rgb(255,0,0),
+                rgb(0,0,0),
+                rgb(0,255,0),
+                rgb(0, 0, 0),
+                rgb(0,0,255),
+                rgb(0,0,0)
+            );
+    animation: moving 6s linear infinite;
+}
+@keyframes moving {
+    0% {
+        --x: 0%;
+        --y: 0%;
+        /* Bắt đầu ở Góc trên cùng bên trái */
+    }
+
+    25% {
+        --x: 100%;
+        --y: 0%;
+        /* Chạy mép trên: Sang Góc trên cùng bên phải */
+    }
+
+    50% {
+        --x: 100%;
+        --y: 100%;
+        /* Chạy mép phải: Xuống Góc dưới cùng bên phải */
+    }
+
+    75% {
+        --x: 0%;
+        --y: 100%;
+        /* Chạy mép dưới: Sang Góc dưới cùng bên trái */
+    }
+
+    100% {
+        --x: 0%;
+        --y: 0%;
+        /* Chạy mép trái: Trở về Góc trên cùng bên trái để lặp lại */
+    }
+}
