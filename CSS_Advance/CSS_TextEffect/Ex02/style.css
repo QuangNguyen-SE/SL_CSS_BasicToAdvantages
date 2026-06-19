@@ -1,0 +1,17 @@
+html{
+    height: 100vh;
+}
+
+.text-1{
+    height: fit-content;
+    width: 200px;
+    border: 1px solid rgba(0,0,0,1);
+    word-break: keep-all;
+}
+
+.text-2 {
+    height: fit-content;
+    width: 200px;
+    border: 1px solid rgba(0,0,0,1);
+    word-break: break-all;
+}

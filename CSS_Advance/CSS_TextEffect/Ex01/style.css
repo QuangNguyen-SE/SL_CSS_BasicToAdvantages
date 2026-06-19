@@ -1,0 +1,21 @@
+html{
+    height: 100vh;
+}
+
+.text-1{
+    height: fit-content;
+    width: 200px;
+    border: 1px solid rgba(0,0,0,1);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+
+.text-2 {
+    height: fit-content;
+    width: 200px;
+    border: 1px solid rgba(0,0,0,1);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
