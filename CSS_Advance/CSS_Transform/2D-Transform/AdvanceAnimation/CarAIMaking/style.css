@@ -1,0 +1,218 @@
+/* RESET & SETUP */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #050510;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* SCENE & PARALLAX BACKGROUND */
+#scene {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#road {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #111 20%, #111 80%, transparent);
+    border-top: 2px solid #ff0055;
+    border-bottom: 2px solid #00f3ff;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.5), inset 0 0 30px rgba(0, 243, 255, 0.2);
+    /* Đường vạch kẻ di chuyển */
+    background-image: linear-gradient(90deg, transparent 0%, transparent 40%, #fff 40%, #fff 60%);
+    background-size: 200px 4px;
+    background-position-y: 50%;
+    background-repeat: repeat-x;
+}
+
+#ui {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #00f3ff;
+    text-shadow: 0 0 10px #00f3ff;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 100;
+
+    /* FIX LỖI NHỒI NHÉT: */
+    min-width: 350px;
+    /* Đảm bảo box luôn đủ rộng */
+    display: flex;
+    flex-direction: column;
+    /* Xếp các text theo chiều dọc */
+    gap: 12px;
+    /* Tạo khoảng cách thoáng giữa tốc độ và hướng dẫn */      
+    white-space: nowrap;
+    /* Cấm rớt dòng lộn xộn */
+
+    /* TRANG TRÍ THÊM CHO RÕ NÉT UI (Tùy chọn) */
+    background: rgba(5, 5, 16, 0.7);
+    /* Nền tối mờ */
+    padding: 15px 25px;
+    /* Tạo không gian thở cho text */
+    border-radius: 10px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+.instruction {
+    font-size: 14px;   
+    color: #ff0055;
+    text-shadow: 0 0 5px #ff0055;
+    /* Đã xóa margin-top vì dùng thuộc tính gap của thẻ cha (#ui) */
+}
+
+/* XE CYBERPUNK */
+#car-container {
+    position: absolute;
+    bottom: calc(10% + 45px);
+    left: 15%;
+    width: 320px;
+        /* CHỐT CỨNG CHIỀU RỘNG */
+    height: 85px;
+        /* CHỐT CỨNG CHIỀU CAO */
+    transition: transform 0.2s ease;
+    z-index: 10;
+}
+
+.car-body {
+    position: absolute;
+        /* Đổi thành absolute để khớp 100% với container */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #2b2e4a 0%, #1a1a2e 100%);
+        clip-path: polygon(0% 100%, 5% 60%, 25% 40%, 65% 40%, 85% 65%, 100% 70%, 100% 100%);
+        border-bottom: 4px solid #00f3ff;
+        box-shadow: 0px 20px 30px -10px rgba(0, 243, 255, 0.6);
+    
+}
+
+/* KÍNH XE */
+.window {
+    position: absolute;
+    top: 42%;
+    left: 35%;
+    width: 100px;
+    height: 25px;
+    background: linear-gradient(90deg, #00f3ff 0%, #0077ff 100%);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    opacity: 0.8;
+    box-shadow: 0 0 15px #00f3ff;
+}
+
+/* ĐÈN PHA CHIẾU SÁNG (Mặt trước xe) */
+.headlight {
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    width: 10px;
+    height: 15px;
+    background: #fff;
+    box-shadow: 0 0 10px #fff, 0 0 10px #00f3ff;
+}
+
+.headlight-beam {
+    position: absolute;
+    right: -400px;
+    bottom: -20px;
+    width: 400px;
+    height: 100px;
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.4) 0%, transparent 100%);
+    clip-path: polygon(0% 40%, 100% 0%, 100% 100%, 0% 60%);
+    mix-blend-mode: screen;
+    pointer-events: none;  
+}
+
+/* ĐÈN HẬU */
+.taillight {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    width: 8px;
+    height: 15px;
+    background: #ff0055;
+    box-shadow: 0 0 15px #ff0055, 0 0 30px #ff0055;
+}
+
+/* BÁNH XE NĂNG LƯỢNG */
+.wheel {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom: -20px;
+    background: radial-gradient(circle, #111 30%, transparent 35%), conic-gradient(from 0deg, #00f3ff 0% 10%, transparent 10% 50%, #00f3ff 50% 60%, transparent 60% 100%);
+    border-radius: 50%;
+    border: 4px solid #111;
+    box-shadow: 0 0 15px #00f3ff, inset 0 0 10px #00f3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wheel::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #ff0055;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff0055;
+}
+
+.wheel.front {
+    right: 30px;
+}
+
+.wheel.rear {
+    left: 40px;
+}
+
+/* ỐNG XẢ */
+#exhaust {
+    position: absolute;
+    left: -5px;
+    bottom: 10px;
+    width: 15px;
+    height: 10px;
+    background: #333;
+}
+
+/* PARTICLES (Lửa ống xả) */
+.particle {
+    position: absolute;
+    background: #ff0055;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.2) translate(-100px, -20px);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,59 @@
+html{
+    height: 100vh;
+    width: 100vw;
+}
+body{
+    height: inherit;
+    width: inherit;
+    place-items: center;
+}
+
+.box{
+    height: 100px;
+    width: 200px;
+    margin-bottom: 100px;
+    transform: scale(1,1);
+    transition: all 3s linear;
+}
+
+.ex-1{
+    background: rgb(255,0,50);
+}
+.ex-1:hover{
+    transform: scale(1.5);
+}
+
+.ex-2{
+    background: rgb(25, 180, 200);
+}
+.ex-2:hover{
+    transform: scaleX(1.5);
+}
+
+.ex-3{
+    background: rgb(25,100,255)
+}
+.ex-3:hover{
+    transform: scaleX(-1.5);
+}
+
+.ex-4{
+    background: rgb(255,0,0);
+}
+.ex-4:hover{
+    transform: scaleY(1.5);
+}
+
+.ex-5{
+    background: rgb(0,255,0);
+}
+.ex-5:hover{
+    transform: scaleY(-1.5);
+}
+
+.ex-6{
+    background: rgb(0,0,255);
+}
+.ex-6:hover{
+    transform: scale(-1.5);
+}

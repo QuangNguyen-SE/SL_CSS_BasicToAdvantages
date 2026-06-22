@@ -1,0 +1,67 @@
+html{
+    height: 100vh;
+}
+
+.box{
+    height: 100px;
+    width: 200px;
+    text-align: center;
+}
+
+.ex-1{
+    background-color: rgb(255,0,0);
+    border-radius: 20px;
+    transform: translate(0px, 50px);
+}
+
+.ex-2{
+    background-color: rgb(0,255,0);
+}
+
+.ex-3{
+    background-color: rgb(0,0,255);
+    border-radius: 20px;
+    transform: translateX(-190px);
+    transition: transform 0.4s ease-in-out;
+}
+
+.ex-3:hover{
+    transform: translateX(0px);
+}
+@property --angle-1{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.ex-4{
+    height: 100px;
+    width: 100px;
+    background: radial-gradient(circle, rgb(0, 0, 0) 15%, transparent 16%),
+    repeating-conic-gradient(from var(--angle-1),rgb(0, 0, 0) 0% 5%,
+            rgb(255, 255, 255) 5% 10%)
+            ;
+    border-radius: 50%;
+    border: 5px solid #000000;
+    animation: tagRun 3s ease infinite alternate;
+}
+@keyframes tagRun {
+    from{
+        --angle-1: 0deg;
+        transform: translateX(0px) rotate(0deg);
+    }
+    to{
+        /* transform: translateX(300px); */
+        /* transform: rotate(180deg); 
+            Ghi như vậy là không hợp lệ vì đây là lỗi bị ghi đè, css sẽ lầm tưởng rằng translate đã bị thay thế bởi thuộc tính rotate
+        */
+        --angle-1:360deg;
+        transform: translateX(500px) rotate(180deg);
+    }
+}
+
+.ex-5{
+    background-color: rgb(0,255,255);
+}
+.ex-6{
+    background-color: rgb(255,0,255);
+}

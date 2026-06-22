@@ -1,0 +1,169 @@
+/* Container đóng vai trò như một đường ray */
+.track-container {
+    width: 100%;
+    height: 200px;
+    background-color: #1a1a2e;
+    /* Nền tối để làm nổi bật khối chuyển động */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* Giấu khối khi nó chạy ra khỏi màn hình */
+    border-radius: 10px;
+}
+
+/* Khối chuyển động chính */
+.speed-box {
+    width: 180px;
+    height: 60px;
+    background: linear-gradient(90deg, #ff0055, #ffbd00);
+    /* Hiệu ứng màu gradient tốc độ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+
+    /* Gọi animation 'dash' | Thời gian 2.5s | Lặp vô hạn */
+    /* animation: dash 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite; */
+    animation: dash-with-blur 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.box-text {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 900;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+}
+
+/* --- ĐỊNH NGHĨA KEYFRAMES CHO CHUYỂN ĐỘNG QUÁN TÍNH --- */
+@keyframes dash {
+    0% {
+        /* Đứng yên ở ngoài cùng bên trái */
+        transform: translateX(-200px) skewX(0deg);
+    }
+
+    20% {
+        /* BẮT ĐẦU TĂNG TỐC: Khối tiến về trước nhưng bị giật ngược về sau (-30deg) */
+        transform: translateX(10vw) skewX(-30deg);
+    }
+
+    60% {
+        /* DUY TRÌ TỐC ĐỘ CAO: Khối di chuyển qua giữa màn hình, giữ nguyên độ nghiêng */
+        transform: translateX(60vw) skewX(-30deg);
+    }
+
+    80% {
+        /* PHANH GẤP: Khối dừng lại đột ngột nên bị chúi nhào về phía trước (+20deg) */
+        transform: translateX(80vw) skewX(20deg);
+    }
+
+    90% {
+        /* LẤY LẠI THĂNG BẰNG: Lùi lại một chút và hết nghiêng */
+        transform: translateX(78vw) skewX(-5deg);
+    }
+
+    100% {
+        /* Dừng hẳn và phóng vụt ra khỏi màn hình */
+        transform: translateX(120vw) skewX(0deg);
+    }
+}
+
+@keyframes dash-with-blur {
+    0%,100% {
+        transform: translateX(-200px) skewX(0deg);
+        /* Bóng đổ bình thường khi đứng yên */
+        box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+    }
+
+    /* --- TĂNG TỐC ĐỘ GẤP --- */
+    20%,
+    60% {
+        transform: translateX(10vw) skewX(-30deg);
+
+        /* ĂN GIAN MOTION BLUR: Tạo 3 lớp bóng tịnh tiến ngược chiều */
+        /* Lớp 1: Gần, mờ ít, màu đậm */
+        /* Lớp 2: Xa hơn, mờ hơn, màu nhạt */
+        /* Lớp 3: Xa nhất, rất mờ, rất nhạt */
+        box-shadow:
+            -10px 0 15px rgba(255, 0, 85, 0.4),
+            /* Hơi dạt về trái */
+            -25px 0 30px rgba(255, 0, 85, 0.2),
+            /* Dạt xa hơn, mờ hơn */
+            -50px 0 50px rgba(255, 0, 85, 0.1);
+        /* Vệt sáng kéo dài */
+    }
+
+    /* --- PHANH GẤP --- */
+    80% {
+        transform: translateX(80vw) skewX(20deg);
+        /* Khi phanh, quán tính đẩy vệt sáng ra phía TRƯỚC vật thể */
+        box-shadow:
+            10px 0 15px rgba(255, 189, 0, 0.4),
+            /* Dạt về bên phải (trước mặt) */
+            25px 0 30px rgba(255, 189, 0, 0.2);
+    }
+
+    /* ... các trạng thái còn lại giữ nguyên ... */
+}
+
+/* Thiết lập cho thẻ cha chứa vệt sáng */
+.speed-box {
+    position: relative;
+    /* Để ::before căn theo thẻ này */
+    /* ... các thuộc tính cũ ... */
+}
+
+/* Định nghĩa vệt sáng ::before */
+.speed-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 5px;
+    /* Nằm sát cạnh phải của khối */
+    width: 100%;
+    /* Ban đầu rộng bằng khối */
+    height: 100%;
+    background: inherit;
+    /* Lấy màu gradient của cha */
+
+    /* Làm mờ dải gradient này */
+    filter: blur(8px);
+
+    /* Mặc định tàng hình */
+    opacity: 0;
+    border-radius: inherit;
+
+    /* Gọi animation riêng cho vệt sáng */
+    animation: tail-stretch 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+/* Animation làm dải sáng ::before kéo dài ra và mờ đi */
+@keyframes tail-stretch {
+
+    0%,
+    100% {
+        width: 0;
+        opacity: 0;
+        transform: skewX(0deg);
+    }
+
+    /* --- TĂNG TỐC ĐỘ CAO --- */
+    20%,
+    60% {
+        width: 250%;
+        /* Kéo dài dải sáng ra gấp 2.5 lần */
+        opacity: 0.7;
+        /* Hiện rõ dải sáng */
+        transform: skewX(-30deg);
+        /* Nghiêng cùng độ nghiêng của cha */
+        filter: blur(12px);
+        /* Mờ hơn khi chạy nhanh */
+    }
+
+    /* --- PHANH GẤP --- */
+    80% {
+        width: 0;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,90 @@
+html{
+    height: 100vh;
+}
+
+.car{
+    height: fit-content;
+    width: fit-content;
+    transform: translateX(0px);
+    animation: carRun 3s ease infinite alternate;
+}
+
+@keyframes carRun{
+    from{
+        transform: translateX(0px);
+    }to{
+        transform: translate(500px);
+    }
+}
+
+.roof{
+    display: flex;
+    height: 50px;
+    width: 150px;
+    background-color: red;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transform: translateX(30px);
+    overflow: hidden;
+}
+
+.glass-1{
+    height: 40px;
+    width: 70px;
+    background-color: rgba(0,0,0, 0.7);
+    border-top-left-radius: 20px;
+}
+
+.glass-2 {
+    height: 40px;
+    width: 70px;
+    background-color: rgba(0,0,0,0.7);
+    border-top-right-radius: 20px;
+    transform: translateX(10px);
+}
+
+.car-body{
+    height: 100px;
+    width: 250px;
+    background-color: blue;
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 20px;
+}
+
+.tire{
+    height: 30px;
+    width: 55px;
+    background-color: white;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.wheel{
+    height: 45px;
+    width: 45px;
+    background: radial-gradient(circle, rgb(0, 0, 0) 15%, transparent 16%),
+            repeating-conic-gradient(rgb(0, 0, 0) 0% 5%,
+                rgb(255, 255, 255) 5% 10%);
+
+    border-radius: 50%;
+    border: 5px solid #000000;
+    animation: tagRun 3s ease infinite alternate;
+}
+
+@keyframes tagRun {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
