@@ -29,3 +29,7 @@
 - Ứng dụng:
     1. Tạo ra hiệu ứng chuyển động bằng skew
     2. Tạo ra hoạt ảnh isometic 3D nhờ bổ trợ thuộc tính translate và scale
+
+## matrix()
+- Hàm `matrix` là hàm kết hợp của 3 hàm trên
+- Với cú pháp thứ tự của nó là `matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`

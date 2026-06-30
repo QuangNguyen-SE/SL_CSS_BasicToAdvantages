@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bg-Position</title>
+    <style>
+        html{
+            height: 100vh;
+        }
+
+        .text-img{
+            height: 400px;
+            width: 600px;
+            background-image: url("../../bg-pic.webp");
+            background-color: red;
+            background-size: 100px 100px;
+            /* background-size sẽ tùy chỉnh kích thước background của 1 thẻ 
+            NHƯNG nếu background-size nhỏ hơn kích thước của thẻ 
+            thì trình duyệt mặc định sẽ tự động sử dụng background-repeat để repeat ảnh đó sao cho nó phủ kín toàn bộ kích thước thẻ
+            */
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-img">
+    </div>
+</body>
+</html>

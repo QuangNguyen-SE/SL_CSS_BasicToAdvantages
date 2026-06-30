@@ -24,7 +24,9 @@
     - `auto`: Kích thước gốc của ảnh (mặc định).
     - `cover`: Phóng to/thu nhỏ ảnh để phủ kín toàn bộ phần tử (ảnh bị cắt bớt 1 phần nhưng sẽ không bị móp ảnh).
     - `contain`: Phóng to/thu nhỏ ảnh để toàn bộ ảnh nằm trọn vẹn trong phân tử (có thể hở khoảng trống nếu tỷ lệ không khớp)
-    - **Đơn vị cụ thể**: `100px 50px`.
+    - **Đơn vị cụ thể**: `100px 50px`. 
+        - Nếu `background-size` nhỏ hơn kích thước của thẻ, nó sẽ tự động xử dụng thuộc tính `repeat`
+        > `background-size` có ảnh hưởng tới `background-image` và `background-repeat`.
 
 ## 5. background-repeat
 - Quy định xem ảnh nền có được lặp lại nếu kích thước ảnh nhỏ hơn kích thước phần tử hay không.
