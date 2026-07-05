@@ -1,0 +1,40 @@
+html{
+    height: 100vh;
+}
+.container{
+    height: 300px;
+    width: 250px;
+    border: 1px solid black;
+    perspective: 1000px;
+    place-content: center;
+    place-items: center;
+}
+.card{
+    width: 200px;
+    height: 250px;
+    border: 1px solid rgb(0,0,0);
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.font-card, .back-card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+
+}
+.font-card{
+    background-color: rgba(255, 5, 5, 0.2);
+}
+.back-card{
+    background-color: rgba(255,255,255, 0.2);
+    transform: rotateY(180deg);
+}
+.card:hover{
+    transform: rotateY(180deg);
+}

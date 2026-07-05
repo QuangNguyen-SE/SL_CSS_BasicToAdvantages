@@ -33,3 +33,8 @@
 ## matrix()
 - Hàm `matrix` là hàm kết hợp của 3 hàm trên
 - Với cú pháp thứ tự của nó là `matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`
+
+# Transform-origin
+- `transform-origin`: là dạng property xác định **tâm điểm** 
+- **Thay đổi vị trí tâm** nơi mà vật thể sẽ xoay quanh.
+- Cú pháp của `transform-origin: x-axis y-axis;`

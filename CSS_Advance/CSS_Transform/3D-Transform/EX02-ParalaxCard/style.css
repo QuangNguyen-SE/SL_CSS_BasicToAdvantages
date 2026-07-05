@@ -1,0 +1,84 @@
+/* CSS */
+.card-container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    /* Giữ không gian 3D cho toàn bộ con cháu */
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Hiệu ứng xoay có độ nảy nhẹ */
+}
+
+/* Định dạng chung cho 2 mặt */
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    /* QUAN TRỌNG: Tiếp tục truyền không gian 3D vào trong mặt trước */
+    backface-visibility: hidden;
+}
+
+/* -- CẤU HÌNH CÁC LỚP MẶT TRƯỚC -- */
+.front-face {
+    background-color: #34495e;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Lớp 1: Nằm dưới cùng */
+.background {
+    z-index: 1;
+    transform: translateZ(0px);
+}
+
+/* Lớp 2: Nổi lên một chút */
+.character {
+    z-index: 2;
+    transform: translateZ(40px);
+    /* Bức ra khỏi nền 40px */
+    background-color: rgba(231, 76, 60, 0.5);
+    /* Bán trong suốt để thấy độ nổi */
+    height: 50%;
+    top: 25%;
+}
+
+/* Lớp 3: Nổi cao nhất */
+.title {
+    z-index: 3;
+    transform: translateZ(80px);
+    /* Bức ra khỏi nền 80px */
+    top: 40%;
+}
+
+/* -- CẤU HÌNH MẶT SAU -- */
+.back-face {
+    background-color: #27ae60;
+    transform: rotateY(180deg);
+    /* Quay lưng lại */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+/* Hiệu ứng xoay lật */
+.card-container:hover .card {
+    transform: rotateY(180deg);
+}

@@ -1,0 +1,106 @@
+html {
+    height: 100vh;
+}
+
+body {
+    place-items: center;
+}
+
+.box {
+    height: 100px;
+    width: 200px;
+    margin-bottom: 100px;
+    transition: all 3s linear;
+}
+
+.ex-1 {
+    position: relative;
+    background: rgb(255, 0, 50);
+}
+.ex-1::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+.ex-1:hover {
+    transform: rotate(180deg);
+}
+
+/* EX 02 */
+.ex-2 {
+    position: relative;
+    background: rgb(25, 180, 200);
+    transform-origin: 0% 0%;
+}
+.ex-2::after{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 100;
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+.ex-2:hover {
+    transform: rotate(180deg);
+}
+/* ------------------------------ */
+
+.ex-3 {
+    background: rgb(25, 100, 255);
+    position: relative;
+    transform-origin: 100% 0%;
+}
+.ex-3::after{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 100;
+    top: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.ex-3:hover {
+    transform: rotate(180deg);
+}
+
+.ex-4 {
+    background: rgb(255, 0, 0);
+}
+
+.ex-4:hover {
+    transform: scaleY(1.5);
+}
+
+.ex-5 {
+    background: rgb(0, 255, 0);
+}
+
+.ex-5:hover {
+    transform: scaleY(-1.5);
+}
+
+.ex-6 {
+    background: rgb(0, 0, 255);
+}
+
+.ex-6:hover {
+    transform: scale(-1.5);
+}

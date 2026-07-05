@@ -1,0 +1,194 @@
+html {
+    height: 100vh;
+    display: grid;
+    /* Bắt buộc phải có display grid/flex thì place-items mới hoạt động */
+    place-items: center;
+    place-content: center;
+    background-image: url(r48699.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.table {
+    height: 25rem;
+    width: 35rem;
+    border: 1px solid rgba(0, 0, 0, 1);
+    display: grid;
+    place-items: center;
+    perspective: 1000px;
+    background-image: url(Bubinga-QC.jpg);
+}
+
+.book{
+    position:relative;
+    height: 350px;
+    width: 300px;  
+    perspective: 1000px;
+    transition: transform 1.5s ease-in-out;
+}
+
+/* Class này sẽ được JS thêm vào khi sách mở */
+.book.shift-right {
+    /* Dịch sang phải 100px (bạn có thể tăng giảm tùy ý cho ra giữa màn hình) */
+    transform: translateX(100px);
+}
+
+.book>div{
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    transform-style: preserve-3d;
+    transform-origin: top left;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-collapse: collapse;
+    transition: transform 0.8s ease-in-out;
+}
+.book>div:not(.page-1, .last-page){
+    background-color: white;
+    border-collapse: collapse;
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+.flip{
+    transform: rotateY(-180deg);
+}
+.page-1{
+    background-color: pink;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position:absolute;
+
+}
+.page-1::after{
+    content: "";
+    position: absolute;
+    height: inherit;
+    width: 10px;
+    background-image: linear-gradient(90deg, transparent, rgba(0,0,0,0.2));
+    z-index: 100;
+    left:0%;
+}
+.author{
+    position: absolute;
+    font-size: 10px;
+    top: 90%;
+}
+.font-page,
+.behind-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-overflow: break-all;
+}
+
+.behind-page {
+    transform: rotateY(-180deg);
+}
+
+.page-2 {
+    text-align: center;
+    z-index: -1;
+}
+
+.page-3 {
+    text-align: center;
+    z-index: -2;
+}
+
+
+.page-4 {
+    text-align: center;
+    z-index: -3;
+}
+.page-5{
+    text-align: center;
+    z-index: -4;
+}
+
+.page-6 {
+    text-align: center;
+    z-index: -5;
+}
+
+.page-7 {
+    text-align: center;
+    z-index: -6;
+}
+
+.page-8 {
+    text-align: center;
+    z-index: -7;
+}
+
+.page-9 {
+    text-align: center;
+    z-index: -8;
+}
+
+.page-10 {
+    text-align: center;
+    z-index: -9;
+}
+
+.page-11 {
+    text-align: center;
+    z-index: -10;
+}
+
+.page-11 {
+    text-align: center;
+    z-index: -10;
+}
+
+.page-12 {
+    text-align: center;
+    z-index: -11;
+}
+
+.page-13 {
+    text-align: center;
+    z-index: -12;
+}
+
+.page-14 {
+    text-align: center;
+    z-index: -13;
+}
+
+.page-15 {
+    text-align: center;
+    z-index: -14;
+}
+
+.page-16 {
+    text-align: center;
+    z-index: -15;
+}
+
+.page-17 {
+    text-align: center;
+    z-index: -16;
+}
+
+.last-page {
+    text-align: center;
+    z-index: -19;
+    background-color: pink;
+}
+
+.anhdoi{
+    max-width: 95%;
+    max-height: 95%;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
