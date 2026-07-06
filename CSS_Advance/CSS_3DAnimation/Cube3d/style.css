@@ -18,6 +18,7 @@ body {
 
 /* 1. Tạo không gian 3D với góc nhìn (perspective) */
 .scene {
+    border: 2px solid rgb(255,255,255);
     width: 200px;
     height: 200px;
     perspective: 600px;
