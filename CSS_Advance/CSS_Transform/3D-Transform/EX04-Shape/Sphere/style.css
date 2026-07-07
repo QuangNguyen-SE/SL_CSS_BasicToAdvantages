@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    overflow: hidden;
+
+    /* Ngăn chặn việc lỡ bôi đen các phần tử khác khi đang kéo chuột */
+    user-select: none;
+}
+
+.scene {
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+
+    /* Hiển thị con trỏ chuột hình bàn tay mở */
+    cursor: grab;
+}
+
+/* Khi người dùng bấm giữ chuột, đổi thành bàn tay nắm lại */
+.scene:active {
+    cursor: grabbing;
+}
+
+.sphere {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+
+    /* Thiết lập góc xoay mặc định ban đầu */
+    transform: rotateX(0deg) rotateY(0deg);
+}
+
+.ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(66, 151, 248, 0.4);
+    box-shadow: 0 0 15px rgba(66, 151, 248, 0.2),
+        inset 0 0 15px rgba(66, 151, 248, 0.2);
+
+    /* Bỏ qua các sự kiện chuột trên vòng tròn để kéo thả mượt hơn trên thẻ .scene */
+    pointer-events: none;
+}
