@@ -1,0 +1,69 @@
+html{
+    height: 100vh;
+}
+.race {
+    height: 200px;
+    width: 600px;
+    position: relative;
+}
+
+.car {
+    position: absolute;
+    height: 50px;
+    width: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top:50%;
+    transform: translateY(-50%);
+    background-color: rgb(0,0,0);
+    z-index: -1;
+}
+
+.car-1 {
+    background-color: red;
+    animation: mov 5s infinite linear alternate;
+}
+
+.car-2 {
+    background-color: violet;
+    animation: mov 5s infinite ease alternate;
+}
+
+.car-3 {
+    background-color: blue;
+    animation: mov 5s infinite ease-in-out alternate;
+}
+
+.car-4 {
+    background-color: black;
+    animation: mov 5s infinite ease-in alternate;
+}
+
+.car-5 {
+    background-color: cadetblue;
+    animation: mov 5s infinite ease-out alternate;
+}
+
+.car-6{
+    background-color: chocolate;
+    animation: mov 5s infinite steps(5, start) alternate;
+}
+
+.car-7{
+    background-color: chartreuse;
+    animation: mov 5s infinite cubic-bezier(0.165, 0.84, 0.44, 1) alternate;
+}
+
+@keyframes mov {
+    from{
+        transform: translateY(-50%) translateX(0px);
+    }to{
+        transform: translateY(-50%) translateX(500px);
+    } 
+}

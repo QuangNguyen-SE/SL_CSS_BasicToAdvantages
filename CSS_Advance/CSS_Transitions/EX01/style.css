@@ -1,0 +1,14 @@
+html{
+    height: 100vh;
+}
+
+.tag-1{
+    background-color: rgb(0,0,0);
+    width: 100px;
+    height: 100px;
+    transition: width 3s ease, height 5s linear;
+}
+.tag-1:hover{
+    width: 500px;
+    height: 500px;
+}
