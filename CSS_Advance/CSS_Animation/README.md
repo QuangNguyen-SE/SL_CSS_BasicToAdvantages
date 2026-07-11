@@ -13,7 +13,7 @@
             - Chỉ số index nguyên dương hoặc dùng keyword `infinite`.
         3. `animation-timing-function`: 
             -  Y như của `transition-timing-function`.
-    4. **animation-direction** (đây là thuộc tính đổi hướng của animation).
+    4. **animation-direction** (đây là thuộc tính đổi hướng sự kiện của animation).
         1. `normal` (default value): animation sẽ luôn di chuyển theo 1 hướng thẳng duy nhất 0%-100%.
         2. `reverse` : sẽ ngược lại với normal là nó sẽ đi ngược lại từ 100%-0%.
         3. `alternate`: sẽ lặp lại animation đó. 0% -> 100% -> 0% -> ....

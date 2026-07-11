@@ -2,6 +2,24 @@ html{
     height: 100vh;
 }
 .tag-1{
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(255,0,0);
+    position: absolute;
+    animation-name: move1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: backwards;
 }
+@keyframes move1 {
+    0%{
+        background-color: yellow;
+        top: 0px;
+    }100%{
+        background-color: blue;
+        top: 300px;
+    }
+}
+
