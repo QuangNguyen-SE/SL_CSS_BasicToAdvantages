@@ -1,0 +1,46 @@
+html{
+    height: 100vh;
+}
+.navbar{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    top: 50px;
+}
+.items{
+    position: relative;
+
+}
+.items:hover .tooltip{
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip{
+    position:absolute;
+    visibility: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    height: fit-content;
+    width: fit-content;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 12px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+
+
