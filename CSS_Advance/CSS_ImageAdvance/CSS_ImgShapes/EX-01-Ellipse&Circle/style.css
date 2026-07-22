@@ -1,0 +1,33 @@
+html{
+    height: 100vh;
+}
+
+.gallery {
+    border: 1px solid rgb(0,0,0);
+    height: fit-content;
+    width: fit-content;
+}
+
+.test-1 {
+
+}
+
+.test-2 {
+    clip-path: circle(50% at right);
+}
+
+.test-3 {
+    clip-path: circle(50%);
+}
+
+.test-4 {
+    clip-path: circle(60%);
+}
+
+.test-5 {
+    clip-path: ellipse(50% 40%);
+}
+
+.test-6 {
+    clip-path: ellipse(40% 50%);
+}
