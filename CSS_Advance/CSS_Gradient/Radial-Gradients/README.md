@@ -7,7 +7,7 @@
     1. Hình dáng của gradient và kích thước vị trí của nó
     2. start color
     3. end color
-- Bắt buộc tối thiểu phải có 2 màu sắc giống linear-gradient
+>Bắt buộc tối thiểu phải có 2 màu sắc giống linear-gradient
 `radial-gradient(shape size at position, start color, ..., end color)`
 - `shape`, `size`, `position` là 3 thuộc tính gắn liền với nhau không cần dùng dấu phẩy
 - Mô tả:

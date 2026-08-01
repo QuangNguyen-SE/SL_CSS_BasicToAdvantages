@@ -1,0 +1,40 @@
+html{
+    height: 100vh;
+}
+body{
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.content{
+    width: 450px;
+    height: 450px;
+    box-sizing: border-box;
+}
+
+.content{
+    background-image: url(../img_5terre.jpg);
+    background-size: cover;
+    background-position: center;
+    /* background-image: radial-gradient(circle, rgba(0, 0, 0, 1), transparent); */
+    mask-image: radial-gradient(circle,rgba(0, 0, 0, 1)0%, transparent 70% 100%);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 0%;
+    animation: revealImage 1.5s ease-out forwards;
+}
+
+@keyframes revealImage {
+    0% {
+        -webkit-mask-size: 0%;
+        mask-size: 0%;
+    }
+
+    100% {
+        /* Phóng to mặt nạ đủ lớn để hiển thị toàn bộ ảnh */
+        -webkit-mask-size: 150%;
+        mask-size: 150%;
+    }
+}

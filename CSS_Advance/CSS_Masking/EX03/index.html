@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Mask Size</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            margin: 0;
+        }
+
+        .image-container {
+            width: 400px;
+            height: 300px;
+            /* Đặt một bức ảnh nền ngẫu nhiên */
+            background-image: url('https://picsum.photos/400/300?random=1');
+            background-size: cover;
+            background-position: center;
+
+            /* Sử dụng mặt nạ hình tròn với góc cạnh mờ (feather) */
+            -webkit-mask-image: radial-gradient(circle, black 50%, transparent 60%);
+            mask-image: radial-gradient(circle, black 50%, transparent 60%);
+
+            /* Đặt mặt nạ ở giữa và không lặp lại */
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+
+            /* Khởi tạo kích thước mặt nạ là 0 (ẩn ảnh) */
+            -webkit-mask-size: 0%;
+            mask-size: 0%;
+
+            /* Áp dụng animation, forwards giúp giữ lại trạng thái cuối cùng */
+            animation: revealImage 1.5s ease-out forwards;
+        }
+
+        /* Định nghĩa animation thay đổi kích thước mặt nạ */
+        @keyframes revealImage {
+            0% {
+                -webkit-mask-size: 0%;
+                mask-size: 0%;
+            }
+
+            100% {
+                /* Phóng to mặt nạ đủ lớn để hiển thị toàn bộ ảnh */
+                -webkit-mask-size: 150%;
+                mask-size: 150%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Khi tải trang, ảnh sẽ từ từ xuất hiện từ giữa ra -->
+    <div class="image-container"></div>
+</body>
+
+</html>

@@ -12,6 +12,10 @@ html{
     place-items: center;
     place-content: center;
 }
+.box-0 {
+    background: radial-gradient(circle, var(--color-red), transparent);
+}
+
 .box-1{
     background: radial-gradient(circle farthest-side at 0% 0%, var(--color-red), var(--color-green), var(--color-blue));
 }

@@ -1,0 +1,12 @@
+html{
+    height: 100vh;
+    background-color: black;
+}
+.content{
+    height: 300px;
+    width: 300px;
+    -webkit-mask-image: url("../w3logo.png");
+    mask-image: url("../w3logo.png");
+    background-image: url(../img_5terre.jpg);
+    mask-repeat: no-repeat;
+}
