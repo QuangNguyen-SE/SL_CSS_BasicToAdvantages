@@ -1,0 +1,57 @@
+html {
+    height: 100vh;
+}
+body {
+    height: inherit;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+}
+
+.content {
+    width: 500px;
+    height: 350px;
+    background-image: url(../img_5terre.jpg);
+    background-size: cover;
+    background-position: center;
+
+    /* 2 lớp mask, mỗi lớp là 1 vòng tròn đặc kích thước 220x220, bán kính vòng tròn 90px */
+    -webkit-mask-image:
+        radial-gradient(circle 90px, black 99%, transparent 100%),
+        radial-gradient(circle 90px, black 99%, transparent 100%);
+    mask-image:
+        radial-gradient(circle 90px, black 99%, transparent 100%),
+        radial-gradient(circle 90px, black 99%, transparent 100%);
+
+    -webkit-mask-repeat: no-repeat, no-repeat;
+    mask-repeat: no-repeat, no-repeat;
+    -webkit-mask-size: 220px 220px, 220px 220px;
+    mask-size: 220px 220px, 220px 220px;
+
+    /* source-in là cú pháp Porter-Duff của Safari, tương đương "intersect" */
+    -webkit-mask-composite: source-in;
+    /* Chi hien anh o vung 2 vong tron mask CHONG LEN NHAU (giao nhau) */
+    mask-composite: intersect;
+
+    animation: sweepCircles 3s ease-in-out infinite alternate;
+}
+
+@keyframes sweepCircles {
+    0% {
+        /* 2 vòng tròn ở 2 mép ngoài, chưa giao nhau -> ảnh ẩn hoàn toàn */
+        -webkit-mask-position: -110px center, 610px center;
+        mask-position: -110px center, 610px center;
+    }
+    50% {
+        /* 2 vòng tròn trùng khít tại tâm -> hiện trọn 1 vòng tròn ảnh */
+        -webkit-mask-position: 140px center, 140px center;
+        mask-position: 140px center, 140px center;
+    }
+    100% {
+        /* Đổi chỗ cho nhau rồi tách ra 2 mép còn lại -> ảnh ẩn hoàn toàn */
+        -webkit-mask-position: 610px center, -110px center;
+        mask-position: 610px center, -110px center;
+    }
+}

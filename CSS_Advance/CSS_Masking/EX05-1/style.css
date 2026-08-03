@@ -1,0 +1,85 @@
+html, body{
+    height: 100vh;
+}
+body{
+    background-color: rgb(0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stage{
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 1px solid rgb(255,255,255);
+    overflow: hidden;
+}
+
+/* .window chỉ giữ 1 lỗ tròn CỐ ĐỊNH ngay tâm của chính nó (clip-path không animate)
+   -> mọi khung hình chỉ cần GPU composite lại transform, không phải tính lại mask/clip mỗi frame */
+.window{
+    position: absolute;
+    inset: 0;
+    clip-path: circle(85px at 50% 50%);
+    will-change: transform;
+}
+
+/* .photo di chuyển NGƯỢC DẤU với .window ở cùng thời điểm
+   -> ảnh nhìn như đứng yên, chỉ có "lỗ tròn" của .window là thấy trôi qua ảnh */
+.window .photo{
+    position: absolute;
+    inset: 0;
+    width: 400px;
+    height: 400px;
+    background-image: url(../img_5terre.jpg);
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.window1{
+    animation: moveWindow1 3s infinite ease;
+}
+.window1 .photo{
+    animation: counterPhoto1 3s infinite ease;
+}
+
+.window2{
+    animation: moveWindow2 3s infinite ease;
+}
+.window2 .photo{
+    animation: counterPhoto2 3s infinite ease;
+}
+
+/* window1: đi qua 4 góc left-top -> right-top -> right-bottom -> left-bottom, giống EX05 gốc */
+@keyframes moveWindow1{
+    0%{   transform: translate(-100px, -100px); }
+    25%{  transform: translate(100px, -100px); }
+    50%{  transform: translate(100px, 100px); }
+    75%{  transform: translate(-100px, 100px); }
+    100%{ transform: translate(-100px, -100px); }
+}
+@keyframes counterPhoto1{
+    0%{   transform: translate(100px, 100px); }
+    25%{  transform: translate(-100px, 100px); }
+    50%{  transform: translate(-100px, -100px); }
+    75%{  transform: translate(100px, -100px); }
+    100%{ transform: translate(100px, 100px); }
+}
+
+/* window2: luôn ở góc đối diện window1 tại mỗi thời điểm, giống EX05 gốc */
+@keyframes moveWindow2{
+    0%{   transform: translate(100px, 100px); }
+    25%{  transform: translate(-100px, 100px); }
+    50%{  transform: translate(-100px, -100px); }
+    75%{  transform: translate(100px, -100px); }
+    100%{ transform: translate(100px, 100px); }
+}
+@keyframes counterPhoto2{
+    0%{   transform: translate(-100px, -100px); }
+    25%{  transform: translate(100px, -100px); }
+    50%{  transform: translate(100px, 100px); }
+    75%{  transform: translate(-100px, 100px); }
+    100%{ transform: translate(-100px, -100px); }
+}
