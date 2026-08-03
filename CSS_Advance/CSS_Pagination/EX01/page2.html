@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination with CSS Counter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>This is page-2</h1>
+    <p class="desc">Đây là trang thật thứ 2, được điều hướng tới bằng cách bấm vào ô số 2 hoặc nút Next ở trang trước.</p>
+
+    <nav class="pagination" aria-label="Page navigation">
+        <a href="index.html" class="page-btn prev">&laquo; Prev</a>
+
+        <ul class="page-list">
+            <li><a href="index.html" class="page-link"></a></li>
+            <li><a href="page2.html" class="page-link active"></a></li>
+            <li><a href="#3" class="page-link"></a></li>
+            <li><a href="#4" class="page-link"></a></li>
+            <li><a href="#5" class="page-link"></a></li>
+        </ul>
+
+        <a href="#" class="page-btn next disabled">Next &raquo;</a>
+    </nav>
+</body>
+</html>

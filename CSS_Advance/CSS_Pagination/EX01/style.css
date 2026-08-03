@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px;
+}
+
+.desc {
+    color: #555;
+    max-width: 500px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.page-list {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Khởi tạo bộ đếm tên "page", bắt đầu từ 0 */
+    counter-reset: page;
+}
+
+.page-list li {
+    /* Mỗi <li> tăng bộ đếm "page" thêm 1 */
+    counter-increment: page;
+}
+
+.page-btn,
+.page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.2s, color 0.2s;
+}
+
+.page-link::before {
+    /* Số trang được sinh từ bộ đếm, không nằm trong HTML */
+    content: counter(page);
+}
+
+.page-link:hover,
+.page-btn:hover {
+    background: #f0f0f0;
+}
+
+.page-link.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.page-btn.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
