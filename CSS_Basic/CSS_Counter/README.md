@@ -23,3 +23,5 @@
   color: #d9534f; /* Màu đỏ cho số */
 }
 ```
+## 4. counter-set
+- Set lại gtri biến đếm.

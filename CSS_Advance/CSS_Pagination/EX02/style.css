@@ -1,0 +1,73 @@
+html, body{
+    height: 100vh;
+}
+
+.pagination{
+    position: relative;
+    bottom: 50px;
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+}
+
+.but{
+    height: 2rem;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.page-bar{  
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.page-bar{
+    counter-reset: count-page;
+}
+
+.number-section{
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid rgb(0,0,0);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-section::before{
+    content: counter(count-page);
+    counter-increment: count-page;
+}
+
+.page-bar span{
+    display: inline-flex;
+    align-items: end;
+}
+
+.last-page{
+    counter-set: count-page 19;
+}
+.number-section:hover{
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(5px, -1px);
+}
+
+.number-section:active{
+    background-color: rgb(173, 172, 172);
+}
