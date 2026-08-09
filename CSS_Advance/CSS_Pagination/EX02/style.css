@@ -63,6 +63,7 @@ html, body{
 .last-page{
     counter-set: count-page 19;
 }
+
 .number-section:hover{
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
     transform: translate(5px, -1px);
