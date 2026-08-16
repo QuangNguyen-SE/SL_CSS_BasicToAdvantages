@@ -1,0 +1,58 @@
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(13, 10, 59);
+}
+
+.scene {
+    perspective: 600px;
+}
+
+.cube {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    transform-style: preserve-3d;
+    border: 1px solid white;
+
+}
+
+.face {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background-color: rgba(86, 206, 102, 0.2);
+    display: grid;
+    place-items: center;
+    border: 1px solid white;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(150px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(150px);
+}
+
+.front {
+    transform: translateZ(150px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(150px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(150px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(150px);
+}

@@ -1,0 +1,90 @@
+html{
+    height: 100vh;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(13, 10, 59);
+}
+
+.scene{
+    perspective: 600px;
+}
+
+@property --angle-x{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+@property --angle-y {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 360deg;
+}
+@property --angle-z {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.cube{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--angle-x)) rotateY(var(--angle-y)) rotateZ(var(--angle-z));
+    border: 1px solid white;
+    animation: cubeRotate 5s linear infinite;
+}
+
+@keyframes cubeRotate {
+    from{
+        --angle-x: 0deg;
+        --angle-y: 360deg;
+        --angle-z: 0deg;
+    }to{
+        --angle-x: 360deg;
+        --angle-y: 0deg;
+        --angle-z: 360deg;
+    }
+}
+
+.face{
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background-color: rgba(86, 206, 102, 0.2);
+    display: grid;
+    place-items: center;
+    border: 1px solid white;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(150px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(150px);
+}
+
+.front {
+    transform: translateZ(150px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(150px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(150px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(150px);
+}
+
+
+
+

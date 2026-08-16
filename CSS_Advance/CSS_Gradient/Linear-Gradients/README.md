@@ -15,12 +15,15 @@ linear-gradient(side-or-corner, angle, color-stop1, color-stop2, ...);
         - Khai báo nó với keyword `to`
         - Vidu:
             - `linear-gradient(to top left);`
+
+
     - `angle`: (Không bắt buộc) 
         - Giá trị này khai báo góc độ của quang phổ
         - Quang phổ có thể bắt đầu từ 1 góc 45 độ đổ xuống, hoặc 180 độ. 
         - Default value của nó là `0deg` và maxium value của nó `360deg`.
         - Vidu:
             - `linear-gradient(to top left, 270deg);`
+
     - `color-stop1`, `color-stop2`: (bắt buộc) 
         - Giá trị này khai báo màu sắc trong quang phổ.
         - Phải có ít nhất 1 màu.

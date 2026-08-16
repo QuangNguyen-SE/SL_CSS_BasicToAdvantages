@@ -1,0 +1,31 @@
+.output{
+    display: inline-block;
+    background-color: lightgreen;
+}
+
+@property --number{
+    initial-value: -20%;
+    syntax: "<percentage>";
+    inherits: false;
+} 
+
+
+.myInput{
+    height: 2rem;
+    --spread: 50%;
+    border:none;
+    background: antiquewhite linear-gradient(to right, black calc(var(--number) - var(--spread)), red var(--number), black calc(var(--number) - var(--spread))) bottom / 100% 4px no-repeat;
+    animation: redLine 3s infinite linear backwards;
+}
+
+@keyframes redLine {
+    from{
+        --number: -20%;
+    }to{
+        --number: 120%;
+    }
+}
+
+.myInput:focus{
+    outline: 0;
+}
